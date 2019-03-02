@@ -1,0 +1,6 @@
+C:\Users\lcsdg\source\repos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Imobi.Domain.dll
+C:\Users\lcsdg\source\repos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Imobi.Domain.pdb
+C:\Users\lcsdg\source\repos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csprojAssemblyReference.cache
+C:\Users\lcsdg\source\repos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\lcsdg\source\repos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.dll
+C:\Users\lcsdg\source\repos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.pdb
