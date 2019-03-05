@@ -27,4 +27,3 @@ C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\en-US\prmToolkit.Noti
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.CopyComplete
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.GenerateResource.cache
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.Resources.Message.resources
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csprojAssemblyReference.cache

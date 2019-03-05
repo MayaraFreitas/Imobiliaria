@@ -129,6 +129,9 @@
   <data name="Generico_MinMax_0X_O" xml:space="preserve">
     <value>O {0} deve ter entre {1} e {2} caracteres</value>
   </data>
+  <data name="Generico_Nao_Encontrado_0X" xml:space="preserve">
+    <value>{0} não encontrado!</value>
+  </data>
   <data name="Generico_Obrigatorio_0X" xml:space="preserve">
     <value>{0} é obrigatório!</value>
   </data>
@@ -141,10 +144,16 @@
   <data name="Generico_Titulo_Senha" xml:space="preserve">
     <value>Senha</value>
   </data>
+  <data name="Usuario_Alterar_Erro_Status" xml:space="preserve">
+    <value>Não é possível alterar os dados do usuário, pois ele está desativado!</value>
+  </data>
   <data name="Usuario_Primeiro_Nome" xml:space="preserve">
     <value>Primeiro Nome</value>
   </data>
   <data name="Usuario_SobreNome_Nome" xml:space="preserve">
     <value>Sobrenome</value>
+  </data>
+  <data name="Usuario_Title" xml:space="preserve">
+    <value>Usuário</value>
   </data>
 </root>

@@ -51,7 +51,35 @@ namespace Imobi.Domain.Services
 
         public AlterarUsuarioResponse AlterarUsuario(AlterarUsuarioRequest request)
         {
-            throw new NotImplementedException();
+            if (request == null)
+            {
+                AddNotification("AutenticarUsuarioRequest", Message.Generico_Obrigatorio_0X.ToFormat("AutenticarUsuarioRequest"));
+            }
+
+            Usuario usuario = _usuarioRepo.ObterUsuarioPorId(request.Id);
+
+            if (usuario == null)
+            {
+                AddNotification("id", string.Format(Message.Generico_Nao_Encontrado_0X, Message.Usuario_Title));
+                return null;
+            }
+
+            // Alterando nome e email do usuário
+            Nome nome = new Nome(request.PrimeiroNome, request.SobreNome);
+            Email email = new Email(request.Email);
+            usuario.AlterarUsuario(nome, email, usuario.Status);
+
+            // Verificar se existe notificação de erro
+            AddNotifications(usuario, email);
+            if (usuario.IsInvalid())
+            {
+                return null;
+            }
+
+            // Salvar alteração
+            _usuarioRepo.AlterarUsuario(usuario);
+
+            return (AlterarUsuarioResponse)usuario;
         }
 
         public AutenticarUsuarioResponse AutenticarUsuario(AutenticarUsuarioRequest request)

@@ -97,6 +97,15 @@ namespace Imobi.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} não encontrado!.
+        /// </summary>
+        public static string Generico_Nao_Encontrado_0X {
+            get {
+                return ResourceManager.GetString("Generico_Nao_Encontrado_0X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} é obrigatório!.
         /// </summary>
         public static string Generico_Obrigatorio_0X {
@@ -133,6 +142,15 @@ namespace Imobi.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não é possível alterar os dados do usuário, pois ele está desativado!.
+        /// </summary>
+        public static string Usuario_Alterar_Erro_Status {
+            get {
+                return ResourceManager.GetString("Usuario_Alterar_Erro_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Primeiro Nome.
         /// </summary>
         public static string Usuario_Primeiro_Nome {
@@ -147,6 +165,15 @@ namespace Imobi.Domain.Resources {
         public static string Usuario_SobreNome_Nome {
             get {
                 return ResourceManager.GetString("Usuario_SobreNome_Nome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário.
+        /// </summary>
+        public static string Usuario_Title {
+            get {
+                return ResourceManager.GetString("Usuario_Title", resourceCulture);
             }
         }
     }

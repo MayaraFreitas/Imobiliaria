@@ -40,7 +40,7 @@ namespace Imobi.Domain.Entities
 
             AddNotifications(nome, email);
         }
-
+        
         #endregion
 
         #region Propriedades
@@ -51,6 +51,21 @@ namespace Imobi.Domain.Entities
         public Email Email { get; private set; }
         public string Senha { get; private set; }
         public byte Status { get; private set; }
+
+        #endregion
+
+        #region Metodos
+
+        public void AlterarUsuario(Nome nome, Email email, byte status)
+        {
+            Nome = nome;
+            Email = email;
+
+            // Alterar status para Enum ou Sinfe Constants
+            new AddNotifications<Usuario>(this).IfTrue(Status == 1, Message.Usuario_Alterar_Erro_Status);
+
+            AddNotifications(nome, email);
+        }
 
         #endregion
     }
