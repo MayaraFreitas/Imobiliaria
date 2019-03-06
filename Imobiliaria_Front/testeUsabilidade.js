@@ -10,7 +10,6 @@ var card = function() {
     
 };
 
-
 for (var i = 0; i < classname.length; i++) {
     classname[i].addEventListener('click', card, false);
 }
