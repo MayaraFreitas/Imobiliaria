@@ -97,7 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arguments\Usuario\AdicionandoUsuarioRequest.cs" />
+    <Compile Include="Arguments\Usuario\AdicionarUsuarioRequest.cs" />
     <Compile Include="Arguments\Usuario\AdicionarUsuarioResponse.cs" />
     <Compile Include="Arguments\Usuario\AlterarUsuarioRequest.cs" />
     <Compile Include="Arguments\Usuario\AlterarUsuarioResponse.cs" />
@@ -109,6 +109,7 @@
     <Compile Include="Interfaces\Arguments\IRequest.cs" />
     <Compile Include="Interfaces\Arguments\IResponse.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Services\Base\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\IUsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Message.Designer.cs">

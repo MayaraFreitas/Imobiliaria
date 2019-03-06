@@ -142,11 +142,29 @@ namespace Imobi.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preencha um e-mail válido e uma senha com pelo menos 6 caracteres..
+        /// </summary>
+        public static string Login_Invalido {
+            get {
+                return ResourceManager.GetString("Login_Invalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não é possível alterar os dados do usuário, pois ele está desativado!.
         /// </summary>
         public static string Usuario_Alterar_Erro_Status {
             get {
                 return ResourceManager.GetString("Usuario_Alterar_Erro_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não encontrado!.
+        /// </summary>
+        public static string Usuario_Nao_Encontrado {
+            get {
+                return ResourceManager.GetString("Usuario_Nao_Encontrado", resourceCulture);
             }
         }
         

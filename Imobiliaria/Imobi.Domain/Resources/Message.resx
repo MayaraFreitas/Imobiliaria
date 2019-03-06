@@ -144,8 +144,14 @@
   <data name="Generico_Titulo_Senha" xml:space="preserve">
     <value>Senha</value>
   </data>
+  <data name="Login_Invalido" xml:space="preserve">
+    <value>Preencha um e-mail válido e uma senha com pelo menos 6 caracteres.</value>
+  </data>
   <data name="Usuario_Alterar_Erro_Status" xml:space="preserve">
     <value>Não é possível alterar os dados do usuário, pois ele está desativado!</value>
+  </data>
+  <data name="Usuario_Nao_Encontrado" xml:space="preserve">
+    <value>Usuário não encontrado!</value>
   </data>
   <data name="Usuario_Primeiro_Nome" xml:space="preserve">
     <value>Primeiro Nome</value>

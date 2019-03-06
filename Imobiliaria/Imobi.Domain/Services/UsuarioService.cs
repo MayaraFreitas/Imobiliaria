@@ -2,10 +2,9 @@
 using Imobi.Domain.Entities;
 using Imobi.Domain.Interfaces.Repositories;
 using Imobi.Domain.Interfaces.Services;
+using Imobi.Domain.Resources;
 using Imobi.Domain.VOs;
 using prmToolkit.NotificationPattern;
-using System;
-using Imobi.Domain.Resources;
 using prmToolkit.NotificationPattern.Extensions;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +30,14 @@ namespace Imobi.Domain.Services
 
         #region Metodos
 
-        public AdicionarUsuarioResponse AdicionarUsuario(AdicionandoUsuarioRequest request)
+        public AdicionarUsuarioResponse AdicionarUsuario(AdicionarUsuarioRequest request)
         {
             // Instanciar classes para validar
-            Nome nome = new Nome(request.Nome.PrimeiroNome, request.Nome.SobreNome);
-            Email email = new Email(request.Email.Endereco);
-  
+            Nome nome = new Nome(request.PrimeiroNome, request.SobreNome);
+            Email email = new Email(request.Email);
             Usuario usuario = new Usuario(nome, email, request.Senha);
+
+            AddNotifications(nome, email);
             if (this.IsInvalid())
             {
                 return null;
@@ -87,6 +87,7 @@ namespace Imobi.Domain.Services
             if (request == null)
             {
                 AddNotification("AutenticarUsuarioRequest", Message.Generico_Obrigatorio_0X.ToFormat("AutenticarUsuarioRequest"));
+
             }
 
             // Ao instanciar, através do construtor ocorre a validação

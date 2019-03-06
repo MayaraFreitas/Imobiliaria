@@ -1,9 +1,9 @@
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.Resources.Message.resources
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.GenerateResource.cache
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Imobi.Domain.dll.config
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Imobi.Domain.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Imobi.Domain.pdb
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.CoreCompileInputs.cache
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.dll
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.pdb
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Imobi.Domain.dll.config
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\prmToolkit.NotificationPattern.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\System.AppContext.dll
@@ -25,5 +25,6 @@ C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\System.Xml.ReaderWrit
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\bin\Debug\en-US\prmToolkit.NotificationPattern.resources.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.CopyComplete
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.GenerateResource.cache
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.Resources.Message.resources
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.dll
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.pdb
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csprojAssemblyReference.cache
