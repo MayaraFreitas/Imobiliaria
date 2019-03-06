@@ -48,7 +48,7 @@
 
 .filtro-btn{
     flex-direction: row-reverse;
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -195,7 +195,6 @@
     .campo .campo-filtro input[type=date]{
         display: inline-block;
         max-width: 125px;
-        margin-top: 25px;
     }
   } 
 
