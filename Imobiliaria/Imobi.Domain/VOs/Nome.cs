@@ -6,6 +6,11 @@ namespace Imobi.Domain.VOs
 {
     public class Nome : Notifiable
     {
+        protected Nome()
+        {
+
+        }
+
         public Nome(string primeiroNome, string sobreNome)
         {
             PrimeiroNome = primeiroNome;

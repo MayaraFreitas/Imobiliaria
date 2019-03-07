@@ -27,3 +27,4 @@ C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.C
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csproj.CopyComplete
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.pdb
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.Domain\obj\Debug\Imobi.Domain.csprojAssemblyReference.cache
