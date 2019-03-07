@@ -1,0 +1,215 @@
+.body{
+    background-color: #EEEEEE;
+}
+
+
+/* filtros Lista de Vistorias */
+.hide{
+    display: none;
+}
+
+.navbar-filtros{
+    display: block;
+    background-color: #F1888C;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.campo{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.campo .campo-filtro{
+    display: inline-block;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.campo .input-field{
+    width:100%;
+}
+
+.campo .left-filtro{
+    margin-right: 10px;
+}
+
+.campo .right-filtro{
+    margin-left: 10px;
+}
+
+.filtro-btn{
+    flex-direction: row-reverse;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.navbar-filtros .btn{
+    background-color: white;
+    color: #EE6E73;
+    min-width: 85px;
+}
+
+.navbar-titulo{
+    background-color: #EE6E73;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-titulo .container-titulo{
+    max-width: 85%;
+}
+
+.navbar-titulo .navbar-tags{
+    padding-top: 10px;
+}
+
+.navbar-titulo .chip{
+    background-color: white;
+}
+
+.my-container{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+.card{
+    margin-top: 10px;
+    width: 100%;
+    min-height: 100px;
+}
+
+.card .card-data{
+    font-size: .9rem;
+    color: #9E9E9E;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+.card .card-content{
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.card .card-content .card-title{
+    line-height: 18px;
+    font-size: 18px;
+}
+
+.card .card-content .card-subtitulo{
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.card .card-vistoria .card-subtitulo{
+    font-size: 14px;
+    padding-bottom: 0px;
+}
+
+
+.card .card-content .card-codigo-imobiliaria{
+    font-style: italic;
+    color: #9E9E9E;
+}
+
+.card-title .right{
+    text-align: right;
+    margin-right:0px;
+    padding: 0;
+    width: auto;
+}
+
+.card .avaria {
+    color: #D50000;
+}
+
+.card .bom-estado{
+    color: #00C853;
+}
+
+.card-comodo{
+    min-height: 75px;
+}
+
+.card-notas{
+    min-height: 75px;
+}
+
+.btn-adicionar{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.notas-titulo{
+    height: 30px;
+    font-weight: bold;
+    background-color: white;
+    font-size: 14px;
+    line-height: 14px;
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+.cor-circulo{
+    margin-left: 5px;
+    margin-right: 3px;
+    width: 13px;
+    height: 13px;
+    box-shadow:  0 1px 3px 0 rgb(0, 0, 0, .5);
+    background-color: #3078F6;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+
+@media only screen and (min-width: 800px) {
+
+    .filtros{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .topo{
+        max-width: 500px;
+        margin-right: 20px;
+    }
+  }
+
+@media only screen and (max-width: 350px) {
+
+    .campo .campo-filtro input[type=date]{
+        display: inline-block;
+        max-width: 125px;
+        margin-top: 25px;
+    }
+  } 
+
+@media only screen and (min-width: 500px) {
+
+    .nav-wrapper .brand-logo{
+        left: 50px;
+    }
+
+   
+  } 
+
+  @media only screen and (max-width: 992px) {
+    .nav-wrapper .brand-logo{
+        left: 65px;
+    }
+  } 
