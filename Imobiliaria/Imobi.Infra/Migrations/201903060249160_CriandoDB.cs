@@ -3,7 +3,7 @@ namespace Imobi.Infra.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriandoBanco : DbMigration
+    public partial class CriandoDB : DbMigration
     {
         public override void Up()
         {

@@ -7,13 +7,13 @@ namespace Imobi.Infra.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CriandoBanco : IMigrationMetadata
+    public sealed partial class CriandoDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriandoBanco));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CriandoDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903060203393_CriandoBanco"; }
+            get { return "201903060249160_CriandoDB"; }
         }
         
         string IMigrationMetadata.Source

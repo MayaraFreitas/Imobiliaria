@@ -1,5 +1,3 @@
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.csproj.CoreCompileInputs.cache
-C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.csprojAssemblyReference.cache
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\Imobi.IoC.dll.config
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\Imobi.IoC.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\Imobi.IoC.pdb
@@ -45,6 +43,8 @@ C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\System.Web.Http.xml
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\Unity.Abstractions.pdb
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\Unity.Container.pdb
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\bin\Debug\en-US\prmToolkit.NotificationPattern.resources.dll
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.csprojAssemblyReference.cache
+C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.csproj.CoreCompileInputs.cache
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.csproj.CopyComplete
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.dll
 C:\Projetos\Imobiliaria\Imobiliaria\Imobi.IoC\obj\Debug\Imobi.IoC.pdb

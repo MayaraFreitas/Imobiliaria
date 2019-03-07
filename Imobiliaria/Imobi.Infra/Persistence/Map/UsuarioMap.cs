@@ -11,12 +11,13 @@ namespace Imobi.Infra.Persistence.Map
 
         public UsuarioMap()
         {
-            ToTable("TB_USUARIO");
-            Property(p => p.Email.Endereco).HasMaxLength(200).IsRequired().HasColumnAnnotation("CD_USUARIO", new IndexAnnotation(new IndexAttribute("UK_USUARIO_EMAIL") { IsUnique = true })).HasColumnName("DC_EMAIL");
-            Property(p => p.Nome.PrimeiroNome).HasMaxLength(50).IsRequired().HasColumnName("DC_PRIMEIRO_NOME");
-            Property(p => p.Nome.SobreNome).HasMaxLength(50).IsRequired().HasColumnName("DC_SOBRENOME");
+            ToTable("Usuario");
+            Property(p => p.Email.Endereco).HasMaxLength(200).IsRequired().HasColumnAnnotation("Usuario", new IndexAnnotation(new IndexAttribute("UK_USUARIO_EMAIL") { IsUnique = true })).HasColumnName("Email_Endereco");
+            Property(p => p.Nome.PrimeiroNome).HasMaxLength(50).IsRequired().HasColumnName("Nome_PrimeiroNome");
+            Property(p => p.Nome.SobreNome).HasMaxLength(50).IsRequired().HasColumnName("Nome_SobreNome");
             Property(p => p.Senha).IsRequired();
             Property(p => p.Status).IsRequired();
+            Property(p => p.Apelido);
         }
 
         #endregion
