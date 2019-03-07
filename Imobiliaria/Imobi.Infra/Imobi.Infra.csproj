@@ -113,9 +113,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201903060203393_CriandoBanco.cs" />
-    <Compile Include="Migrations\201903060203393_CriandoBanco.Designer.cs">
-      <DependentUpon>201903060203393_CriandoBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201903060249160_CriandoDB.cs" />
+    <Compile Include="Migrations\201903060249160_CriandoDB.Designer.cs">
+      <DependentUpon>201903060249160_CriandoDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\ImobiContext.cs" />
@@ -126,11 +126,6 @@
     <Compile Include="Transaction\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903060203393_CriandoBanco.resx">
-      <DependentUpon>201903060203393_CriandoBanco.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -139,6 +134,11 @@
       <Project>{D511FB06-6179-4159-B02A-29480E30F5D6}</Project>
       <Name>Imobi.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903060249160_CriandoDB.resx">
+      <DependentUpon>201903060249160_CriandoDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
