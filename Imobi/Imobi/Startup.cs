@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Imobi.Data;
+using Imobi.Models;
+using Imobi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Imobi.Models;
 
 namespace Imobi
 {
@@ -39,16 +36,21 @@ namespace Imobi
             services.AddDbContext<ImobiContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("ImobiContext"), 
                     BuilderExtensions => BuilderExtensions.MigrationsAssembly("Imobi")));
+
+            services.AddScoped<SeedingService>();
+            services.AddScoped<VistoriaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
+            // Se está no perfil de dev
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
-            else
+            else // se em prod
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
