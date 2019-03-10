@@ -1,6 +1,6 @@
-﻿using Imobi.Models;
-using Imobi.Models.ViewModels.Vistoria;
-using Imobi.Services.Exceptions;
+﻿using Imobi.Models.ViewModels.Vistoria;
+using Imobi.Repository;
+using Imobi.Services.ServiceInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,48 +8,31 @@ using System.Threading.Tasks;
 
 namespace Imobi.Services
 {
-    public class VistoriaService
+    public class VistoriaService : IVistoriaService
     {
-        private readonly ImobiContext _contex;
+        #region Propriedades
 
-        public VistoriaService(ImobiContext contex)
+        private readonly IVistoriaRepository _vistoriaRepo;
+
+        #endregion
+
+        #region Construtor
+
+        public VistoriaService(IVistoriaRepository vistoriaRepository)
         {
-            _contex = contex;
+            _vistoriaRepo = vistoriaRepository;
         }
+
+        #endregion
 
         public List<Vistoria> FindAll()
         {
-            return _contex.Vistoria.ToList();
+            return _vistoriaRepo.FindAll();
         }
 
         public void InserirVistoria(Vistoria vistoria)
         {
-            _contex.Vistoria.Add(vistoria);
-            _contex.SaveChanges();
-        }
-
-        public void RemoverVistoria(int id)
-        {
-            var vistoria = _contex.Vistoria.Find(id);
-            _contex.Vistoria.Remove(vistoria);
-            _contex.SaveChanges();
-        }
-
-        public void AtualizarVistoria(Vistoria vistoria)
-        {
-            if (!_contex.Vistoria.Any(x => x.Id == vistoria.Id))
-            {
-                throw new NotFoundException("Id not found");
-            }
-            try
-            {
-                _contex.Update(vistoria);
-                _contex.SaveChanges();
-            }
-            catch (DbConcurrencyException e)
-            {
-                throw new DbConcurrencyException(e.Message);
-            }
+            _vistoriaRepo.InserirVistoria(vistoria);
         }
     }
 }

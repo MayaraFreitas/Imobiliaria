@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Imobi.Models.ViewModels.Vistoria;
-using Imobi.Services;
+﻿using Imobi.Models.ViewModels.Vistoria;
+using Imobi.Services.ServiceInterface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Imobi.Controllers
@@ -11,17 +7,17 @@ namespace Imobi.Controllers
     public class VistoriasController : Controller
     {
         //Declarando dependencia para VistoriaService
-        private readonly VistoriaService _vistoriasService;
+        private readonly IVistoriaService _vistoriaService;
 
-        public VistoriasController(VistoriaService vistoriasService)
+        public VistoriasController(IVistoriaService vistoriaService)
         {
-            _vistoriasService = vistoriasService;
+            _vistoriaService = vistoriaService;
         }
 
         // Get
         public IActionResult Index()
         {
-            var list = _vistoriasService.FindAll();
+            var list = _vistoriaService.FindAll();
             return View(list);
         }
 
@@ -36,7 +32,7 @@ namespace Imobi.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Vistoria vistoria)
         {
-            _vistoriasService.InserirVistoria(vistoria);
+            _vistoriaService.InserirVistoria(vistoria);
 
             return RedirectToAction(nameof(Index));
         }

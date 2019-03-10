@@ -1,6 +1,8 @@
 ﻿using Imobi.Data;
 using Imobi.Models;
+using Imobi.Repository;
 using Imobi.Services;
+using Imobi.Services.ServiceInterface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -41,7 +43,11 @@ namespace Imobi
                     BuilderExtensions => BuilderExtensions.MigrationsAssembly("Imobi")));
 
             services.AddScoped<SeedingService>();
-            services.AddScoped<VistoriaService>();
+            services.AddScoped<VistoriaRepository>();
+
+            services.AddTransient<IVistoriaService, VistoriaService>();
+
+            services.AddTransient<IVistoriaRepository, VistoriaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
