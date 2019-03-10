@@ -20,5 +20,11 @@ namespace Imobi.Services
         {
             return _contex.Vistoria.ToList();
         }
+
+        public void InserirVistoria(Vistoria vistoria)
+        {
+            _contex.Vistoria.Add(vistoria);
+            _contex.SaveChanges();
+        }
     }
 }

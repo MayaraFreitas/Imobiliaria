@@ -35,4 +35,4 @@ C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Teste\De
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Teste\Edit.g.cshtml.cs
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Teste\Index.g.cshtml.cs
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Vistorias\Index.g.cshtml.cs
-C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Imobi.csprojAssemblyReference.cache
+C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Vistorias\Create.g.cshtml.cs

@@ -7,6 +7,11 @@ namespace Imobi.Models.ViewModels.Vistoria
 {
     public class Vistoria
     {
+        public Vistoria()
+        {
+
+        }
+
         public Vistoria(long id, string nome, DateTime dataVistoria, byte status, long idSolicitacao, string observacao, bool energia, bool agua, bool gas)
         {
             Id = id;
