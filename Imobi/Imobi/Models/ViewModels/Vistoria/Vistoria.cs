@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,11 +27,18 @@ namespace Imobi.Models.ViewModels.Vistoria
         }
 
         public long Id { get; set; }
+
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime DataVistoria { get; set; }
         public byte Status { get; set; }
         public long IdSolicitacao { get; set; }
         public string Observacao { get; set; }
+
+        //public Usuario usuario { get; set; }
+        //public int UsuarioId { get; set; }
 
         //Tags
         public bool Energia { get; set; }
