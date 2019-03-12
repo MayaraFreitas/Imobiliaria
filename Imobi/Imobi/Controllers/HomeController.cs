@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Imobi.Models;
 using Microsoft.AspNetCore.Mvc;
-using Imobi.Models;
+using System.Diagnostics;
+
 
 namespace Imobi.Controllers
 {

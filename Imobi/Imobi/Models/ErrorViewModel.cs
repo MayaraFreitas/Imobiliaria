@@ -1,6 +1,4 @@
-using System;
-
-namespace Imobi.Models
+﻿namespace Imobi.Models
 {
     public class ErrorViewModel
     {

@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Imobi.Automapper;
+using Imobi.Data;
+using Imobi.Models;
+using Imobi.Repository;
+using Imobi.Services;
+using Imobi.Services.ServiceInterface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace Imobi
 {
@@ -33,16 +38,75 @@ namespace Imobi
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<ImobiContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("ImobiContext"), 
+                    BuilderExtensions => BuilderExtensions.MigrationsAssembly("Imobi")));
+
+            #region Auto Mapper
+
+            var config = new AutoMapper.MapperConfiguration(ctg =>
+            {
+                ctg.AddProfile(new AutoMapperProfile());
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddMvc();
+
+            #endregion
+
+            #region Declaração de camadas
+
+            #region Add Services 
+
+            services.AddScoped<SeedingService>();
+
+            #endregion
+
+            #region Add Repositories 
+
+            services.AddScoped<VistoriaRepository>();
+
+            #endregion
+
+            #endregion
+
+            #region Interface
+
+            #region Service Interfaces
+
+            services.AddTransient<IVistoriaService, VistoriaService>();
+
+            #endregion
+
+            #region Repository Interfaces
+
+            services.AddTransient<IVistoriaRepository, VistoriaRepository>();
+
+            #endregion
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
+            var ptBr = new CultureInfo("pt-BR");
+            var localizationOption = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(ptBr),
+                SupportedCultures = new List<CultureInfo> { ptBr},
+                SupportedUICultures = new List<CultureInfo> { ptBr }
+            };
+            app.UseRequestLocalization(localizationOption);
+
+            // Se está no perfil de dev
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
-            else
+            else // se em prod
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
