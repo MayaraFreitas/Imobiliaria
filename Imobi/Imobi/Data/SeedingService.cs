@@ -1,5 +1,5 @@
 ﻿using Imobi.Models;
-using Imobi.Models.ViewModels.Vistoria;
+using Imobi.Repository.Entities;
 using System;
 using System.Linq;
 

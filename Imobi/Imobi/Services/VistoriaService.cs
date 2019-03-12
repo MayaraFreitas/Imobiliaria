@@ -1,6 +1,9 @@
-﻿using Imobi.Models.ViewModels.Vistoria;
+﻿using AutoMapper;
+using Imobi.Controllers.DTOs;
+using Imobi.Models.ViewModels.Vistoria;
 using Imobi.Repository;
 using Imobi.Services.ServiceInterface;
+using Imobi.Services.VOs.Vistoria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,26 +16,28 @@ namespace Imobi.Services
         #region Propriedades
 
         private readonly IVistoriaRepository _vistoriaRepo;
+        private readonly IMapper _mapper;
 
         #endregion
 
         #region Construtor
 
-        public VistoriaService(IVistoriaRepository vistoriaRepository)
+        public VistoriaService(IVistoriaRepository vistoriaRepo, IMapper mapper)
         {
-            _vistoriaRepo = vistoriaRepository;
+            _vistoriaRepo = vistoriaRepo;
+            _mapper = mapper;
         }
 
         #endregion
 
-        public List<Vistoria> FindAll()
+        public IEnumerable<VistoriaDTO> FindAll()
         {
-            return _vistoriaRepo.FindAll();
+            return _mapper.Map<IEnumerable<VistoriaDTO>>(_vistoriaRepo.FindAll());
         }
 
-        public void InserirVistoria(Vistoria vistoria)
+        public void InserirVistoria(VistoriaDTO vistoria)
         {
-            _vistoriaRepo.InserirVistoria(vistoria);
+            _vistoriaRepo.InserirVistoria(_mapper.Map<VistoriaVO>(vistoria));
         }
     }
 }

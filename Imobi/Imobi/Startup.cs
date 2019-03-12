@@ -1,4 +1,5 @@
-﻿using Imobi.Data;
+﻿using Imobi.Automapper;
+using Imobi.Data;
 using Imobi.Models;
 using Imobi.Repository;
 using Imobi.Services;
@@ -42,12 +43,49 @@ namespace Imobi
                     options.UseMySql(Configuration.GetConnectionString("ImobiContext"), 
                     BuilderExtensions => BuilderExtensions.MigrationsAssembly("Imobi")));
 
+            #region Auto Mapper
+
+            var config = new AutoMapper.MapperConfiguration(ctg =>
+            {
+                ctg.AddProfile(new AutoMapperProfile());
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddMvc();
+
+            #endregion
+
+            #region Declaração de camadas
+
+            #region Add Services 
+
             services.AddScoped<SeedingService>();
+
+            #endregion
+
+            #region Add Repositories 
+
             services.AddScoped<VistoriaRepository>();
+
+            #endregion
+
+            #endregion
+
+            #region Interface
+
+            #region Service Interfaces
 
             services.AddTransient<IVistoriaService, VistoriaService>();
 
+            #endregion
+
+            #region Repository Interfaces
+
             services.AddTransient<IVistoriaRepository, VistoriaRepository>();
+
+            #endregion
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

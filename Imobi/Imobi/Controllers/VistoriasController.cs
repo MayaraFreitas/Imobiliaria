@@ -1,6 +1,9 @@
-﻿using Imobi.Models.ViewModels.Vistoria;
+﻿using AutoMapper;
+using Imobi.Controllers.DTOs;
+using Imobi.Models.ViewModels.Vistoria;
 using Imobi.Services.ServiceInterface;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Imobi.Controllers
 {
@@ -8,16 +11,19 @@ namespace Imobi.Controllers
     {
         //Declarando dependencia para VistoriaService
         private readonly IVistoriaService _vistoriaService;
+        private readonly IMapper _mapper;
 
-        public VistoriasController(IVistoriaService vistoriaService)
+        public VistoriasController(IVistoriaService vistoriaService, IMapper mapper)
         {
             _vistoriaService = vistoriaService;
+            _mapper = mapper;
         }
 
         // Get
         public IActionResult Index()
         {
-            var list = _vistoriaService.FindAll();
+            IEnumerable<VistoriaDTO> lstVistoriaDTO = _vistoriaService.FindAll();
+            IEnumerable<VistoriaVM> list = _mapper.Map<IEnumerable<VistoriaVM>>(lstVistoriaDTO);
             return View(list);
         }
 
@@ -30,9 +36,9 @@ namespace Imobi.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Vistoria vistoria)
+        public IActionResult Create(VistoriaVM vistoria)
         {
-            _vistoriaService.InserirVistoria(vistoria);
+            _vistoriaService.InserirVistoria(_mapper.Map<VistoriaDTO>(vistoria));
 
             return RedirectToAction(nameof(Index));
         }

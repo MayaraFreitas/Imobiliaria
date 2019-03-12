@@ -17,19 +17,7 @@ namespace Imobi.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Imobi.Models.ViewModels.Teste", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("VistoriaDescricao");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teste");
-                });
-
-            modelBuilder.Entity("Imobi.Models.ViewModels.Vistoria.Vistoria", b =>
+            modelBuilder.Entity("Imobi.Repository.Entities.Vistoria", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();

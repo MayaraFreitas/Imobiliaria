@@ -1,7 +1,10 @@
-﻿using Imobi.Models;
+﻿using AutoMapper;
+using Imobi.Models;
 using Imobi.Models.ViewModels.Vistoria;
+using Imobi.Repository.Entities;
 using Imobi.Repository.Exceptions;
 using Imobi.Services.Exceptions;
+using Imobi.Services.VOs.Vistoria;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,28 +12,35 @@ namespace Imobi.Repository
 {
     public interface IVistoriaRepository
     {
-        List<Vistoria> FindAll();
-        void InserirVistoria(Vistoria vistoria);
+        IEnumerable<VistoriaVO> FindAll();
+        void InserirVistoria(VistoriaVO vistoria);
         void RemoverVistoria(int id);
-        void AtualizarVistoria(Vistoria vistoria);
+        void AtualizarVistoria(VistoriaVO vistoria);
     }
 
     public class VistoriaRepository : IVistoriaRepository
     {
-        private readonly ImobiContext _contex;
 
-        public VistoriaRepository(ImobiContext contex)
+        private readonly ImobiContext _contex;
+        private readonly IMapper _mapper;
+
+        public VistoriaRepository(ImobiContext contex, IMapper mapper)
         {
             _contex = contex;
+            _mapper = mapper;
         }
 
-        public List<Vistoria> FindAll()
+        public IEnumerable<VistoriaVO> FindAll()
         {
-            return _contex.Vistoria.ToList();
+            IEnumerable<Vistoria> lstVistoria =  _contex.Vistoria.ToList();
+
+            return _mapper.Map<IEnumerable<VistoriaVO>>(lstVistoria);
         }
 
-        public void InserirVistoria(Vistoria vistoria)
+        public void InserirVistoria(VistoriaVO vistoriaVO)
         {
+            Vistoria vistoria = _mapper.Map<Vistoria>(vistoriaVO);
+
             _contex.Vistoria.Add(vistoria);
             _contex.SaveChanges();
         }
@@ -42,14 +52,15 @@ namespace Imobi.Repository
             _contex.SaveChanges();
         }
 
-        public void AtualizarVistoria(Vistoria vistoria)
+        public void AtualizarVistoria(VistoriaVO vistoriaVO)
         {
-            if (!_contex.Vistoria.Any(x => x.Id == vistoria.Id))
+            if (!_contex.Vistoria.Any(x => x.Id == vistoriaVO.Id))
             {
                 throw new NotFoundException("Id not found");
             }
             try
             {
+                Vistoria vistoria = _mapper.Map<Vistoria>(vistoriaVO);
                 _contex.Update(vistoria);
                 _contex.SaveChanges();
             }

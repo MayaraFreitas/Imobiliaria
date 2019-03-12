@@ -1,11 +1,11 @@
-﻿using Imobi.Models.ViewModels.Vistoria;
+﻿using Imobi.Controllers.DTOs;
 using System.Collections.Generic;
 
 namespace Imobi.Services.ServiceInterface
 {
     public interface IVistoriaService
     {
-        List<Vistoria> FindAll();
-        void InserirVistoria(Vistoria vistoria);
+        IEnumerable<VistoriaDTO> FindAll();
+        void InserirVistoria(VistoriaDTO vistoria);
     }
 }
