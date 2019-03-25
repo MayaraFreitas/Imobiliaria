@@ -2,6 +2,7 @@
 using Imobi.Controllers.DTOs;
 using Imobi.Models.ViewModels.Vistoria;
 using Imobi.Services.ServiceInterface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -20,6 +21,7 @@ namespace Imobi.Controllers
         }
 
         // Get
+        [Authorize]
         public IActionResult Index()
         {
             IEnumerable<VistoriaDTO> lstVistoriaDTO = _vistoriaService.FindAll();

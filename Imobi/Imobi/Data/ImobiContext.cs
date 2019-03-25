@@ -11,6 +11,7 @@ namespace Imobi.Models
         }
 
         public DbSet<Vistoria> Vistoria { get; set; }
+        public DbSet<User> Accounts { get; set; }
         
     }
 }
