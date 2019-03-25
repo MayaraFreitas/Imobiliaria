@@ -36,6 +36,7 @@ namespace Imobi
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSession();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -66,6 +67,7 @@ namespace Imobi
             #region Add Repositories 
 
             services.AddScoped<VistoriaRepository>();
+            services.AddScoped<AccountRepository>();
 
             #endregion
 
@@ -76,12 +78,14 @@ namespace Imobi
             #region Service Interfaces
 
             services.AddTransient<IVistoriaService, VistoriaService>();
+            services.AddTransient<IAccountService, AccountService>();
 
             #endregion
 
             #region Repository Interfaces
 
             services.AddTransient<IVistoriaRepository, VistoriaRepository>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
 
             #endregion
 
@@ -116,11 +120,13 @@ namespace Imobi
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

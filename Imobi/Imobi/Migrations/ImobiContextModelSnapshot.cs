@@ -17,6 +17,34 @@ namespace Imobi.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Imobi.Repository.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<byte>("Cargo");
+
+                    b.Property<string>("Celular");
+
+                    b.Property<int>("CodigoEmpresa");
+
+                    b.Property<string>("Documento");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Senha");
+
+                    b.Property<string>("Telefone");
+
+                    b.Property<bool>("Whats");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accounts");
+                });
+
             modelBuilder.Entity("Imobi.Repository.Entities.Vistoria", b =>
                 {
                     b.Property<long>("Id")
