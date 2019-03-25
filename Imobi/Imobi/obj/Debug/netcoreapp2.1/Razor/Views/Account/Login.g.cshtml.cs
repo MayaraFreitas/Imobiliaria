@@ -61,7 +61,7 @@ using Imobi.Models;
             WriteLiteral("\r\n<h2>LOGIN</h2>\r\n\r\n<div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n        ");
             EndContext();
             BeginContext(172, 816, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "32bc1db98edb4aa2aa776cafb276f457", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d28c21d44e4e495bb7de406728ee2293", async() => {
                 BeginContext(197, 40, true);
                 WriteLiteral("\r\n            <div class=\"form-group\">\r\n");
                 EndContext();

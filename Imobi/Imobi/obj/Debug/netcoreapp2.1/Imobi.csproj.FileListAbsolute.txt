@@ -31,7 +31,6 @@ C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Imobi.Views.pdb
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Imobi.csproj.CopyComplete
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Vistorias\Index.g.cshtml.cs
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Vistorias\Create.g.cshtml.cs
-C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Imobi.csprojAssemblyReference.cache
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Imobi.Resources.Resource.resources
 C:\Projetos\Imobiliaria\Imobi\Imobi\obj\Debug\netcoreapp2.1\Imobi.csproj.GenerateResource.cache

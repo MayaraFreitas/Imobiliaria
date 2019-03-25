@@ -61,7 +61,7 @@ using Imobi.Models;
             WriteLiteral("\r\n<h2>Register</h2>\r\n\r\n\r\n<div class=\"row\">\r\n    <div class=\"col-md-4\">\r\n        ");
             EndContext();
             BeginContext(180, 236, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1438c83c8669450f831e3bad2b7282c4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2504717fb1304ea6a677750bd6d6dcfe", async() => {
                 BeginContext(208, 201, true);
                 WriteLiteral("\r\n            <div class=\"form-group\">\r\n                <div class=\"form-group\">\r\n                    <input type=\"submit\" value=\"Registrar\" class=\"btn btn-default\" />\r\n                </div>\r\n        ");
                 EndContext();
