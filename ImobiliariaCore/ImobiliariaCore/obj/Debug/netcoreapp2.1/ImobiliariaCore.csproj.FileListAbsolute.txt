@@ -32,4 +32,3 @@ C:\Projetos\Imobiliaria\ImobiliariaCore\ImobiliariaCore\obj\Debug\netcoreapp2.1\
 C:\Projetos\Imobiliaria\ImobiliariaCore\ImobiliariaCore\obj\Debug\netcoreapp2.1\ImobiliariaCore.pdb
 C:\Projetos\Imobiliaria\ImobiliariaCore\ImobiliariaCore\obj\Debug\netcoreapp2.1\ImobiliariaCore.csproj.CopyComplete
 C:\Projetos\Imobiliaria\ImobiliariaCore\ImobiliariaCore\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
-C:\Projetos\Imobiliaria\ImobiliariaCore\ImobiliariaCore\obj\Debug\netcoreapp2.1\ImobiliariaCore.csprojAssemblyReference.cache
