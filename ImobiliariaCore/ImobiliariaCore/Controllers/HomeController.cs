@@ -1,5 +1,11 @@
+<<<<<<< HEAD:ImobiliariaCore/ImobiliariaCore/Controllers/HomeController.cs
 ﻿using System;
 using System.Collections.Generic;
+=======
+﻿using Imobi.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+>>>>>>> 8dbd9cd81360e0af75c24d638aec5d22b6b1661b:Imobi/Imobi/Controllers/HomeController.cs
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;

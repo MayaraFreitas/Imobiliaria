@@ -97,7 +97,11 @@ using Microsoft.AspNetCore.Http.Features;
                     ");
             EndContext();
             BeginContext(1234, 92, false);
+<<<<<<< HEAD:ImobiliariaCore/ImobiliariaCore/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6a012c4a0548daa2ee2051c2034c93", async() => {
+=======
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "42c188c0d22d40128e6613923781fd33", async() => {
+>>>>>>> 8dbd9cd81360e0af75c24d638aec5d22b6b1661b:Imobi/Imobi/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
                 BeginContext(1312, 10, true);
                 WriteLiteral("Learn More");
                 EndContext();
