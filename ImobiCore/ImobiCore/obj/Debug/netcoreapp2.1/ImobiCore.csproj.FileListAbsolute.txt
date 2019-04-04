@@ -30,3 +30,10 @@ C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.Vi
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.dll
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.pdb
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.csproj.CopyComplete
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.Resources.Resource.resources
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.csproj.GenerateResource.cache
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
