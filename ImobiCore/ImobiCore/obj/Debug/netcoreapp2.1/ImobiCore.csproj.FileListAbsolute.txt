@@ -5,7 +5,6 @@ C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\bin\Debug\netcoreapp2.1\ImobiCore.dl
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\bin\Debug\netcoreapp2.1\ImobiCore.pdb
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\bin\Debug\netcoreapp2.1\ImobiCore.Views.dll
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\bin\Debug\netcoreapp2.1\ImobiCore.Views.pdb
-C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.csprojAssemblyReference.cache
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.csproj.CoreCompileInputs.cache
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.RazorAssemblyInfo.cache
 C:\Projetos\Imobiliaria\ImobiCore\ImobiCore\obj\Debug\netcoreapp2.1\ImobiCore.RazorAssemblyInfo.cs
