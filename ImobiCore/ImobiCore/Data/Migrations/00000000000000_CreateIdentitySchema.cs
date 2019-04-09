@@ -8,6 +8,109 @@ namespace ImobiCore.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            #region Tabela Endereco
+            migrationBuilder.CreateTable(
+                name: "Endereco",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Rua = table.Column<string>(maxLength: 256, nullable: false),
+                    Cep = table.Column<string>(maxLength: 10, nullable: false),
+                    Bairro = table.Column<string>(maxLength: 256, nullable: false),
+                    Cidade = table.Column<string>(maxLength: 256, nullable: false),
+                    Ativo = table.Column<bool>(nullable: false),
+                    Numero = table.Column<string>(maxLength: 10, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Endereco", x => x.Id);
+                });
+
+
+            #endregion Tabela Endereco
+
+            #region Tabela Empresa
+            migrationBuilder.CreateTable(
+                name: "Empresa",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    RazaoSocial = table.Column<string>(maxLength: 255, nullable: false),
+                    NomeFantasia = table.Column<string>(maxLength: 255, nullable: true),
+                    Documento = table.Column<string>(maxLength: 45, nullable: false),
+                    InscricaoEstadual = table.Column<string>(maxLength: 45, nullable: false),
+                    InscricaoMunicipal = table.Column<string>(maxLength: 45, nullable: true),
+                    Email = table.Column<string>(maxLength: 45, nullable: true),
+                    site = table.Column<string>(maxLength: 100, nullable: true),
+                    Telefone = table.Column<string>(maxLength: 45, nullable: false),
+                    TelefoneCelular = table.Column<string>(maxLength: 45, nullable: true),
+                    Ativo = table.Column<bool>(nullable: false),
+                    IdEndereco = table.Column<int>(nullable: false),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empresa", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Empresa_Endereco_IdEndereco",
+                        column: x => x.IdEndereco,
+                        principalTable: "Endereco",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                }
+            );
+            #endregion
+
+            #region Tabela de Usuario (Gerada/Manipulada)
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    //NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Document = table.Column<string>(maxLength: 14, nullable: false),
+                    Post = table.Column<byte>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    //PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    CellPhoneNumber = table.Column<string>(nullable: false),
+                    Whatsapp = table.Column<bool>(nullable: false),
+                    Active = table.Column<bool>(nullable: false),
+                    Email = table.Column<string>(maxLength: 256, nullable: false),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    //EmailConfirmed = table.Column<bool>(nullable: false),
+                    Sexo = table.Column<byte>(nullable: false),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    //TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    //LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    //LockoutEnabled = table.Column<bool>(nullable: false),
+                    //AccessFailedCount = table.Column<int>(nullable: false)
+                    IdEndereco = table.Column<int>(nullable: false),
+                    IdEmpresa = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Endereco_IdEndereco",
+                        column: x => x.IdEndereco,
+                        principalTable: "Endereco",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                       name: "FK_AspNetUsers_Empresa_IdEmpresa",
+                       column: x => x.IdEmpresa,
+                       principalTable: "Empresa",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+                });
+            
+            #endregion
+
+            #region Tabelas Geradas
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -23,28 +126,27 @@ namespace ImobiCore.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
+                name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Email = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    UserId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -96,37 +198,13 @@ namespace ImobiCore.Data.Migrations
                     LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
                     ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: false)
+                    UserId = table.Column<string>(maxLength: 450, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
                         name: "FK_AspNetUserLogins_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserRoles",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -152,7 +230,203 @@ namespace ImobiCore.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+            #endregion Tabelas Geradas
 
+            #region Tabela Imovel
+            migrationBuilder.CreateTable(
+                name:"Imovel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Area = table.Column<int>(nullable: false),
+                    Ativo = table.Column<bool>(nullable: false),
+                    Idade = table.Column<long>(nullable: false),
+                    Seguro = table.Column<bool>(nullable: false),
+                    IdEndereco = table.Column<int>(nullable: false),
+                    IdUsuario = table.Column<string>(maxLength: 450, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Imovel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Imovel_Endereco_IdEndereco",
+                        column: x => x.IdEndereco,
+                        principalTable: "Endereco",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Imovel_AspNetUsers_IdUsuario",
+                        column: x => x.IdUsuario,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                }
+            );
+            #endregion #region Tabela Imovel
+
+            #region Solicitacao
+            migrationBuilder.CreateTable(
+               name: "Solicitacao",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false),
+                   DataSolicitacao = table.Column<DateTime>(nullable: false),
+                   DataVistoria = table.Column<DateTime>(nullable: false),
+                   Ativo = table.Column<bool>(nullable: false),
+                   IdVistoriador = table.Column<string>(maxLength: 450, nullable: false),
+                   IdSolicitador = table.Column<string>(maxLength: 450, nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Solicitacao", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_Solicitacao_AspNetUsers_IdVistoriador",
+                       column: x => x.IdVistoriador,
+                       principalTable: "AspNetUsers",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+                   table.ForeignKey(
+                       name: "FK_Solicitacao_AspNetUsers_IdSolicitador",
+                       column: x => x.IdSolicitador,
+                       principalTable: "AspNetUsers",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+               }
+            );
+            #endregion Solicitacao
+
+            #region Log Soliciacao
+            migrationBuilder.CreateTable(
+               name: "LogSolicitacao",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false),
+                   DataAtualizacao = table.Column<DateTime>(nullable: false),
+                   DataVistoria = table.Column<DateTime>(nullable: false),
+                   Descricao = table.Column<string>(maxLength: 8000, nullable: false),
+                   IdVistoriador = table.Column<string>(maxLength: 450, nullable: false),
+                   IdSolicitador = table.Column<string>(maxLength: 450, nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_LogSolicitacao", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_LogSolicitacao_AspNetUsers_IdVistoriador",
+                       column: x => x.IdVistoriador,
+                       principalTable: "AspNetUsers",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+                   table.ForeignKey(
+                       name: "FK_LogSolicitacao_AspNetUsers_IdSolicitador",
+                       column: x => x.IdSolicitador,
+                       principalTable: "AspNetUsers",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+               }
+            );
+            #endregion
+
+            #region
+            migrationBuilder.CreateTable(
+               name: "Vistoria",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false),
+                   DataInicio = table.Column<DateTime>(nullable: true),
+                   DataFim = table.Column<DateTime>(nullable: true),
+                   Ativo = table.Column<bool>(nullable: false),
+                   IdSolicitacao = table.Column<int>(nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Vistoria", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_Vistoria_Solicitacao_IdSolicitacao",
+                       column: x => x.IdSolicitacao,
+                       principalTable: "Solicitacao",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+               }
+            );
+            #endregion
+
+            #region Medicao
+            migrationBuilder.CreateTable(
+               name: "Medicao",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false),
+                   Agua = table.Column<string>(nullable: false),
+                   Energia = table.Column<string>(nullable: false),
+                   Extintor = table.Column<bool>(nullable: false),
+                   GasEncanado = table.Column<bool>(nullable: false),
+                   Ativo = table.Column<bool>(nullable: false),
+                   IdVistoria = table.Column<int>(nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Medicao", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_Medicao_Vistoria_IdVistoria",
+                       column: x => x.IdVistoria,
+                       principalTable: "Vistoria",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
+               }
+            );
+            #endregion Medicao
+
+            #region Comodo
+            migrationBuilder.CreateTable(
+               name: "Comodo",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false),
+                   Nome = table.Column<string>(maxLength: 200, nullable: false),
+                   Imagem = table.Column<byte[]>(nullable: true),
+                   Ativo = table.Column<bool>(nullable: false),
+                   CorTeto = table.Column<byte>(nullable: false),
+                   CorParede = table.Column<byte>(nullable: false),
+                   IdVistoria = table.Column<int>(nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Comodo", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_Comodo_Vistoria_IdVistoria",
+                       column: x => x.IdVistoria,
+                       principalTable: "Vistoria",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.Cascade);
+               }
+            );
+            #endregion Comodo
+
+            #region Nota
+            migrationBuilder.CreateTable(
+               name: "Nota",
+               columns: table => new
+               {
+                   Id = table.Column<int>(nullable: false),
+                   Titulo = table.Column<string>(maxLength: 200, nullable: false),
+                   Descricao = table.Column<string>(maxLength: 8000, nullable: false),
+                   Imagem = table.Column<byte[]>(nullable: true),
+                   IdComodo = table.Column<int>(nullable: false)
+               },
+               constraints: table =>
+               {
+                   table.PrimaryKey("PK_Nota", x => x.Id);
+                   table.ForeignKey(
+                       name: "FK_Nota_Comodo_IdComodo",
+                       column: x => x.IdComodo,
+                       principalTable: "Comodo",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.Cascade);
+               }
+            );
+            #endregion Nota
+
+            #region Index
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -184,13 +458,14 @@ namespace ImobiCore.Data.Migrations
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
-
+            /*
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
+                filter: "[NormalizedUserName] IS NOT NULL");*/
+            #endregion Index
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
