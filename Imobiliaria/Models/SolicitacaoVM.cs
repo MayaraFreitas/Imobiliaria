@@ -7,7 +7,8 @@ namespace Imobiliaria.Models
         public int Id { get; set; }
         public DateTime DataSolicitacao { get; set; }
         public DateTime DataVistoria { get; set; }
-        public int IdVistoriados { get; set; }
-        public int IdSolicitador { get; set; }
+        public string IdVistoriados { get; set; }
+        public string IdSolicitador { get; set; }
+        public bool Ativo { get; set; }
     }
 }
