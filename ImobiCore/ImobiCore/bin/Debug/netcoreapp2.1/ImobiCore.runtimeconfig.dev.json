@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Mayara AF\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Mayara AF\\.nuget\\packages",
+      "C:\\Users\\lcsdg\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\lcsdg\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }

@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Imobiliaria",
-    "\\Imobiliaria\\Imobi.Domain"
+    "\\ImobiCore",
+    "\\ImobiCore\\ImobiCore"
   ],
-  "SelectedNode": "\\Imobiliaria\\Imobi.Domain\\VOs",
+  "SelectedNode": "\\ImobiCore\\ImobiCore.sln",
   "PreviewInSolutionExplorer": false
 }
