@@ -1,10 +1,8 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Imobiliaria.Data.Entities
+namespace Imobiliaria.Service.VOs
 {
-    public class Comodo
+    public class ComodoVO
     {
         public int pkComodo { get; set; }
         public bool ativo { get; set; }
@@ -13,14 +11,11 @@ namespace Imobiliaria.Data.Entities
         public String corTeto { get; set; }
         public String corParede { get; set; }
 
-        Vistoria vistoria;
-        List<Nota> nota = new List<Nota>();
-
-
-        public Comodo()
+        public string Validar()
         {
-        }
+            // adicionar logica de validacao
 
-      
+            return null;
+        }
     }
 }

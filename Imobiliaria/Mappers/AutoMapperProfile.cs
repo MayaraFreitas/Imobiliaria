@@ -15,6 +15,37 @@ namespace Imobiliaria.Mappers
         {
             CreateMap<Solicitacao, SolicitacaoVO>().ReverseMap();
             CreateMap<SolicitacaoVO, SolicitacaoVM>().ReverseMap();
+
+            CreateMap<Cliente, ClienteVO>().ReverseMap();
+            CreateMap<ClienteVO, ClienteVM>().ReverseMap();
+
+            CreateMap<Comodo, ComodoVO>().ReverseMap();
+            CreateMap<ComodoVO, ComodoVM>().ReverseMap();
+
+            CreateMap<Empresa, EmpresaVO>().ReverseMap();
+            CreateMap<EmpresaVO, EmpresaVM>().ReverseMap();
+
+            CreateMap<Endereco, EnderecoVO>().ReverseMap();
+            CreateMap<EnderecoVO, EnderecoVM>().ReverseMap();
+
+            CreateMap<Imovel, ImovelVO>().ReverseMap();
+            CreateMap<ImovelVO, ImovelVM>().ReverseMap();
+
+            CreateMap<LogSolicitacao, LogSolicitacaoVO>().ReverseMap();
+            CreateMap<LogSolicitacaoVO, LogSolicitacaoVM>().ReverseMap();
+
+            CreateMap<Medicao, MedicaoVO>().ReverseMap();
+            CreateMap<MedicaoVO, MedicaoVM>().ReverseMap();
+
+            CreateMap<Nota, NotaVO>().ReverseMap();
+            CreateMap<NotaVO, NotaVM>().ReverseMap();
+
+            CreateMap<User, UserVO>().ReverseMap();
+            CreateMap<UserVO, UserVM>().ReverseMap();
+
+            CreateMap<Vistoria, VistoriaVO>().ReverseMap();
+            CreateMap<VistoriaVO, VistoriaVM>().ReverseMap();
+
         }
     }
 }
