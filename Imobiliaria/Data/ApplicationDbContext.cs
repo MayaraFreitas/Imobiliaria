@@ -13,7 +13,17 @@ namespace Imobiliaria.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         { }
-        public DbSet<Solicitacao> Solicitacao { get; set; }
+        public DbSet<Solicitacao>    Solicitacao { get; set; }
+        public DbSet<Cliente>        Cliente { get; set; }
+        public DbSet<Comodo>         Comodo { get; set; }
+        public DbSet<Empresa>        Empresa { get; set; }
+        public DbSet<Imovel>         Imovel { get; set; }
+        public DbSet<Endereco>       Endereco { get; set; }
+        public DbSet<Nota>           Nota { get; set; }
+        public DbSet<Vistoria>       Vistoria { get; set; }
+        public DbSet<Medicao>        Medicao { get; set; }
+        public DbSet<LogSolicitacao> LogSolicitacao { get; set; }
+
         /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

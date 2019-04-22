@@ -14,5 +14,10 @@ namespace Imobiliaria.Data.Entities
         public string IdVistoriador { get; set; }
         public string IdSolicitador { get; set; }
         public bool Ativo { get; set; }
+
+        //User usuario;
+       // List<User> usuarios = new List<User>();
+        Vistoria vistoria;
+        List<LogSolicitacao> log = new List<LogSolicitacao>();
     }
 }
