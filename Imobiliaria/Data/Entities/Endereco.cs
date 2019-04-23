@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Imobiliaria.Data.Entities
@@ -8,21 +7,17 @@ namespace Imobiliaria.Data.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int pkEndereco { get; set; }
-        public string rua { get; set; }
-        public int cep { get; set; }
-        public string bairro { get; set; }
-        public bool ativo { get; set; }
-        public string cidade { get; set; }
-        public int numero { get; set; }
+        public int Id { get; set; }
+        public string Rua { get; set; }
+        public int Cep { get; set; }
+        public string Bairro { get; set; }
+        public bool Ativo { get; set; }
+        public string Cidade { get; set; }
+        public int Numero { get; set; }
 
-        User usuario;
-        Cliente cliente;
-        Imovel imovel;
-        Empresa empresa;
-
-        public Endereco()
-        {
-        }
+        public User Usuario { get; set; }
+        public Cliente Cliente { get; set; }
+        public Imovel Imovel { get; set; }
+        public Empresa Empresa { get; set; }
     }
 }

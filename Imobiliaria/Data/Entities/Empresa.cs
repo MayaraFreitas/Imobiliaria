@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,31 +8,26 @@ namespace Imobiliaria.Data.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int pkEmpresa { get; set; }
-        public string razaoSocial { get; set; }
-        public string cnpj { get; set; }
-        public string nomeFantasia { get; set; }
-        public String inscricaoEstadual { get; set; }
-        public String inscricaoMunicipal { get; set; }
-        public string email { get; set; }
-        public string contato { get; set; }
-        public String site { get; set; }
-        public bool ativo { get; set; }
-        public String telefone { get; set; }
-        public String celular { get; set; }
-        public Boolean whatsapp { get; set; }
+        public int Id { get; set; }
+        public string RazaoSocial { get; set; }
+        public string Cnpj { get; set; }
+        public string NomeFantasia { get; set; }
+        public string InscricaoEstadual { get; set; }
+        public string InscricaoMunicipal { get; set; }
+        public string Email { get; set; }
+        public string Contato { get; set; }
+        public string Site { get; set; }
+        public bool Ativo { get; set; }
+        public string Telefone { get; set; }
+        public string Celular { get; set; }
+        public bool Whatsapp { get; set; }
 
-        Endereco endereco;
-        User usuario;
+        //[ForeignKey("Standard")]
+        //public int IdEndereco { get; set; }
+       // public Endereco Endereco { get; set; }
 
-        List<Cliente> cliente = new List<Cliente>(); 
-
-
-        public Empresa()
-        {
-        }
-
-        public List<Cliente> Cliente { get => cliente; set => cliente = value; }
+        public User Usuario { get; set; }
+        public List<Cliente> LstCliente { get; set; }
 
     }
 }

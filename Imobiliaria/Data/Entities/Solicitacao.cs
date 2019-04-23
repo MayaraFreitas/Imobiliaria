@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,7 +18,7 @@ namespace Imobiliaria.Data.Entities
 
         //User usuario;
        // List<User> usuarios = new List<User>();
-        Vistoria vistoria;
-        List<LogSolicitacao> log = new List<LogSolicitacao>();
+        public Vistoria Vistoria { get; set; }
+        public List<LogSolicitacao> LstLogSolicitacao { get; set; }
     }
 }

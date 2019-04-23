@@ -4,18 +4,13 @@ namespace Imobiliaria.Service.VOs
 {
     public class MedicaoVO
     {
-        public int pkMedicao { get; set; }
-        public String agua { get; set; }
-        public String energia { get; set; }
-        public String extintor { get; set; }
-        public String gas { get; set; }
-        public bool ativo { get; set; }
+        public int Id { get; set; }
+        public string Agua { get; set; }
+        public string Energia { get; set; }
+        public string Extintor { get; set; }
+        public string Gas { get; set; }
+        public bool Ativo { get; set; }
 
-        public string Validar()
-        {
-            // adicionar logica de validacao
-
-            return null;
-        }
+        public VistoriaVO Vistoria { get; set; }
     }
 }

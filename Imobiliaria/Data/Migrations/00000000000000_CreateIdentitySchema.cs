@@ -45,7 +45,7 @@ namespace Imobiliaria.Data.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    UserType = table.Column<byte>(nullable:true)
+                    UserType = table.Column<byte>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -180,6 +180,37 @@ namespace Imobiliaria.Data.Migrations
 
             #endregion Tabela Endereco
 
+            #region Tabela Empresa
+            /*migrationBuilder.CreateTable(
+                name: "Empresa",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    RazaoSocial = table.Column<string>(maxLength: 255, nullable: false),
+                    NomeFantasia = table.Column<string>(maxLength: 255, nullable: true),
+                    Documento = table.Column<string>(maxLength: 45, nullable: false),
+                    InscricaoEstadual = table.Column<string>(maxLength: 45, nullable: false),
+                    InscricaoMunicipal = table.Column<string>(maxLength: 45, nullable: true),
+                    Email = table.Column<string>(maxLength: 45, nullable: true),
+                    Site = table.Column<string>(maxLength: 100, nullable: true),
+                    Telefone = table.Column<string>(maxLength: 45, nullable: false),
+                    TelefoneCelular = table.Column<string>(maxLength: 45, nullable: true),
+                    Ativo = table.Column<bool>(nullable: false),
+                    IdEndereco = table.Column<int>(nullable: false),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empresa", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Empresa_Endereco_IdEndereco",
+                        column: x => x.IdEndereco,
+                        principalTable: "Endereco",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                }
+            );*/
+            #endregion
+
             #region Tabela Imovel
             migrationBuilder.CreateTable(
                 name: "Imovel",
@@ -211,6 +242,44 @@ namespace Imobiliaria.Data.Migrations
                 }
             );
             #endregion #region Tabela Imovel
+
+            #region Cliente
+            migrationBuilder.CreateTable(
+                name: "Cliente",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Nome = table.Column<string>(maxLength: 255, nullable: false),
+                    Documento = table.Column<string>(maxLength: 45, nullable: false),
+                    Cargo = table.Column<byte>(nullable: false),
+                    Telefone = table.Column<string>(maxLength: 45, nullable: false),
+                    Celular = table.Column<string>(maxLength: 45, nullable: false),
+                    Whatsapp = table.Column<bool>(nullable: false),
+                    Ativo = table.Column<bool>(nullable: false),
+                    Email = table.Column<string>(maxLength: 255, nullable: false),
+                    Sexo = table.Column<byte>(nullable: false),
+                    DataNascimento = table.Column<DateTime>(nullable: false),
+                    //IdEndereco = table.Column<int>(nullable: false),
+                    //IdEmpresa = table.Column<int>(nullable: false),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Imovel", x => x.Id);/*
+                    table.ForeignKey(
+                        name: "FK_Imovel_Endereco_IdEndereco",
+                        column: x => x.IdEndereco,
+                        principalTable: "Endereco",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Imovel_Empresa_IdEmpresa",
+                        column: x => x.IdEmpresa,
+                        principalTable: "Empresa",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);*/
+                }
+            );
+            #endregion
 
             #region Solicitacao
             migrationBuilder.CreateTable(

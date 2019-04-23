@@ -15,7 +15,7 @@ namespace Imobiliaria.Mappers
         {
             CreateMap<Solicitacao, SolicitacaoVO>().ReverseMap();
             CreateMap<SolicitacaoVO, SolicitacaoVM>().ReverseMap();
-
+            /*
             CreateMap<Cliente, ClienteVO>().ReverseMap();
             CreateMap<ClienteVO, ClienteVM>().ReverseMap();
 
@@ -45,7 +45,7 @@ namespace Imobiliaria.Mappers
 
             CreateMap<Vistoria, VistoriaVO>().ReverseMap();
             CreateMap<VistoriaVO, VistoriaVM>().ReverseMap();
-
+            */
         }
     }
 }

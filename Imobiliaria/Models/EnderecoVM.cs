@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Imobiliaria.Service.VOs
+﻿namespace Imobiliaria.Models
 {
-    public class EnderecoVO
+    public class EnderecoVM
     {
         public int Id { get; set; }
         public string Rua { get; set; }
@@ -12,9 +10,9 @@ namespace Imobiliaria.Service.VOs
         public string Cidade { get; set; }
         public int Numero { get; set; }
 
-        public UserVO Usuario { get; set; }
-        public ClienteVO Cliente { get; set; }
-        public ImovelVO Imovel { get; set; }
-        public EmpresaVO Empresa { get; set; }
+        public UserVM Usuario { get; set; }
+        public ClienteVM Cliente { get; set; }
+        public ImovelVM Imovel { get; set; }
+        public EmpresaVM Empresa { get; set; }
     }
 }

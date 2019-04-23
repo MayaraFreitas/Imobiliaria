@@ -4,16 +4,13 @@ namespace Imobiliaria.Service.VOs
 {
     public class LogSolicitacaoVO
     {
-        public int pkLog { get; set; }
-        public DateTime data { get; set; }
-        public string vistoriador { get; set; }
-        public String descricao { get; set; }
+        public int Id { get; set; }
+        public DateTime DataAtualizacao { get; set; }
+        public DateTime DataVistoria { get; set; }
+        public int IdVistoriador { get; set; }
+        public int IdSolicitador { get; set; }
+        public string Descricao { get; set; }
 
-        public string Validar()
-        {
-            // adicionar logica de validacao
-
-            return null;
-        }
+        public SolicitacaoVO Solicitacao { get; set; }
     }
 }

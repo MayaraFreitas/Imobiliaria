@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,17 +11,12 @@ namespace Imobiliaria.Data.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int pkNota { get; set; }
-        public String descricao { get; set; }
-        public string imagem { get; set; }
-        public String titulo { get; set; }
+        public int Id { get; set; }
+        public string Descricao { get; set; }
+        public string Imagem { get; set; }
+        public string Titulo { get; set; }
+        public int IdComodo { get; set; }
 
-        Comodo comodo;
-
-        public Nota()
-        {
-        }
-
-        public int PkNota { get => pkNota; set => pkNota = value; }
+        public Comodo Comodo { get; set; }
     }
 }

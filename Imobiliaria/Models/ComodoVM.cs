@@ -1,14 +1,17 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace Imobiliaria.Models
 {
     public class ComodoVM
     {
-        public int pkComodo { get; set; }
-        public bool ativo { get; set; }
-        public string nome { get; set; }
-        public String imagem { get; set; }
-        public String corTeto { get; set; }
-        public String corParede { get; set; }
+        public int Id { get; set; }
+        public bool Ativo { get; set; }
+        public string Nome { get; set; }
+        public string Imagem { get; set; }
+        public string CorTeto { get; set; }
+        public string CorParede { get; set; }
+
+        public VistoriaVM Vistoria { get; set; }
+        public List<NotaVM> LstNota { get; set; }
     }
 }

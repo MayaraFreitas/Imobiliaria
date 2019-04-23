@@ -1,34 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Imobiliaria.Data.Entities
 {
+    [Table("Cliente")]
     public class Cliente
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int pkCliente { get; set; }
-        public string nome { get; set; }
-        public string documento { get; set; }
-        public Boolean cargo { get; set; }
-        public String telefone { get; set; }
-        public bool ativo { get; set; }
-        public string email { get; set; }
-        public bool sexo { get; set; }
-        public DateTime nascimento { get; set; }
-        public String celular { get; set; }
-        public Boolean whatsapp { get; set; }
+        public int CodigoCliente { get; set; }
+        public string Nome { get; set; }
+        public string Documento { get; set; }
+        public bool Cargo { get; set; }
+        public string Telefone { get; set; }
+        public bool Ativo { get; set; }
+        public string Email { get; set; }
+        public bool Sexo { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string Celular { get; set; }
+        public bool Whatsapp { get; set; }
 
-        Endereco endereco;
-        List<Imovel> imovel = new List<Imovel>();
+        [ForeignKey("Endereco")]
+        public int IdEndereco { get; set; }
+        public Endereco Endereco { get; set; }
 
-        //Construtor
-        public Cliente()
-        {
-        }
-
-        
+        public IEnumerable<Imovel> LstImovel { get; set; }
     }
 }
