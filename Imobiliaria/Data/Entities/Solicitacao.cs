@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Imobiliaria.Data.Entities
 {
+    [Table("Solicitacao")]
     public class Solicitacao
     {
         [Key]
@@ -14,11 +15,11 @@ namespace Imobiliaria.Data.Entities
         public DateTime DataVistoria { get; set; }
         public string IdVistoriador { get; set; }
         public string IdSolicitador { get; set; }
-        public bool Ativo { get; set; }
-
+        public byte Status { get; set; }
+        public int IdImovel { get; set; }
         //User usuario;
-       // List<User> usuarios = new List<User>();
-        public Vistoria Vistoria { get; set; }
-        public List<LogSolicitacao> LstLogSolicitacao { get; set; }
+        // List<User> usuarios = new List<User>();
+        //public Vistoria Vistoria { get; set; }
+        //public List<LogSolicitacao> LstLogSolicitacao { get; set; }
     }
 }

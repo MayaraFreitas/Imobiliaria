@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Imobiliaria.Models;
+using Imobiliaria.Models.Solicitacao;
 using Imobiliaria.Service;
 using Imobiliaria.Service.VOs;
 using Microsoft.AspNetCore.Mvc;

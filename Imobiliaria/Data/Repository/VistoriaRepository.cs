@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Imobiliaria.Data.Entities;
 using Imobiliaria.Service.VOs;
+using Imobiliaria.Service.VOs.Solicitacao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,15 @@ namespace Imobiliaria.Data.Repository
 {
     public interface IVistoriaRepository
     {
+        #region Solicitação
         void InserirSolicitacao(SolicitacaoVO solicitacao);
-        SolicitacaoVO BuscarSolicitacao(SolicitacaoFiltroVO filtro);
+        IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro);
         SolicitacaoVO BuscarSolicitacaoDetalhe(int codigoSolicitacao);
+        #endregion
+
+        #region Vistoria
+        string InserirVistoria(Vistoria vistoriaVO);
+        #endregion
 
         // teste
         IList<SolicitacaoVO> FindAll();
@@ -42,15 +49,38 @@ namespace Imobiliaria.Data.Repository
             _context.SaveChanges();
         }
 
-        public SolicitacaoVO BuscarSolicitacao(SolicitacaoFiltroVO filtro)
+        public IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro)
         {
-            return null;
+            IEnumerable<ViewSolicitacao> lstSolicitacao = _context.ViewSolicitacao.Where(s =>
+            (string.IsNullOrEmpty(filtro.NomeVistoriador) || s.NomeVistoriador.Contains(filtro.NomeVistoriador)) &&
+            (string.IsNullOrEmpty(filtro.NomeProprietario) || s.NomeVistoriador.Contains(filtro.NomeProprietario)) &&
+            (!filtro.Codigo.HasValue || s.Id == filtro.Codigo) &&
+            (!filtro.Status.HasValue || s.Status == filtro.Status) &&
+            (!filtro.DataSolicitacao.HasValue || s.DataVistoria >= filtro.DataSolicitacao.Value.Date) &&
+            (!filtro.DataAgendamento.HasValue || s.DataVistoria < filtro.DataAgendamento.Value.Date) &&
+            (string.IsNullOrEmpty(filtro.EnderecoRua) || s.Rua == filtro.EnderecoRua) &&
+            filtro.IdSolicitador == s.IdSolicitador
+            ).ToList();
+
+            return _mapper.Map<IEnumerable<ViewSolicitacaoVO>>(lstSolicitacao);
         }
 
         public SolicitacaoVO BuscarSolicitacaoDetalhe(int codigoSolicitacao)
         {
             Solicitacao solicitacao = _context.Solicitacao.Find(codigoSolicitacao);
             return _mapper.Map<SolicitacaoVO>(solicitacao);
+        }
+
+        #endregion
+
+        #region Vistoria
+
+        public string InserirVistoria(Vistoria vistoriaVO)
+        {
+            //Vistoria vistoria = _mapper.Map
+
+
+            return null;
         }
 
         #endregion

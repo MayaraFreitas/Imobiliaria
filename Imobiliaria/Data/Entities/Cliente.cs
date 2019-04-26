@@ -26,6 +26,6 @@ namespace Imobiliaria.Data.Entities
         public int IdEndereco { get; set; }
         public Endereco Endereco { get; set; }
 
-        public IEnumerable<Imovel> LstImovel { get; set; }
+       // public IEnumerable<Imovel> LstImovel { get; set; }
     }
 }

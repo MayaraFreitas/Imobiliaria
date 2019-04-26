@@ -11,8 +11,8 @@ namespace Imobiliaria.Data.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime DataInicio { get; set; }
-        public bool Ativo { get; set; }
-        public DateTime DataFim { get; set; }
+        public byte Status { get; set; }
+        public DateTime? DataFim { get; set; }
 
         //public Solicitacao Solicitacao { get; set; }
         //public List<Comodo> LstComodo { get; set; }

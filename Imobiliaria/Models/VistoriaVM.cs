@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Imobiliaria.Models.Solicitacao;
+using System;
 using System.Collections.Generic;
 
 namespace Imobiliaria.Models
@@ -7,7 +8,7 @@ namespace Imobiliaria.Models
     {
         public int Id { get; set; }
         public DateTime DataInicio { get; set; }
-        public bool Ativo { get; set; }
+        public byte Status { get; set; }
         public DateTime DataFim { get; set; }
 
         public SolicitacaoVM Solicitacao { get; set; }

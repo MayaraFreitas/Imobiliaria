@@ -68,5 +68,41 @@ namespace Imobiliaria.Resources {
                 return ResourceManager.GetString("Comum_Erro_Data_MenorQueAtual", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitador Inválido!.
+        /// </summary>
+        public static string Usuario_Erro_SolicitadorInvalido {
+            get {
+                return ResourceManager.GetString("Usuario_Erro_SolicitadorInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vistoriador Inválido!.
+        /// </summary>
+        public static string Usuario_Erro_VistoriadorInvalido {
+            get {
+                return ResourceManager.GetString("Usuario_Erro_VistoriadorInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ops! Houve um erro ao gerar a vistoria. Entre em contato com o time Imobi..
+        /// </summary>
+        public static string Vistoria_Criar_ErroGenerico {
+            get {
+                return ResourceManager.GetString("Vistoria_Criar_ErroGenerico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Vistoria.
+        /// </summary>
+        public static string Vistoria_DataVistoria {
+            get {
+                return ResourceManager.GetString("Vistoria_DataVistoria", resourceCulture);
+            }
+        }
     }
 }
