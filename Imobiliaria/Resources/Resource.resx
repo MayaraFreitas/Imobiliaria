@@ -120,4 +120,16 @@
   <data name="Comum_Erro_Data_MenorQueAtual" xml:space="preserve">
     <value>Ops! A data {0} é menor que a data atual!</value>
   </data>
+  <data name="Usuario_Erro_SolicitadorInvalido" xml:space="preserve">
+    <value>Solicitador Inválido!</value>
+  </data>
+  <data name="Usuario_Erro_VistoriadorInvalido" xml:space="preserve">
+    <value>Vistoriador Inválido!</value>
+  </data>
+  <data name="Vistoria_Criar_ErroGenerico" xml:space="preserve">
+    <value>Ops! Houve um erro ao gerar a vistoria. Entre em contato com o time Imobi.</value>
+  </data>
+  <data name="Vistoria_DataVistoria" xml:space="preserve">
+    <value>Data Vistoria</value>
+  </data>
 </root>

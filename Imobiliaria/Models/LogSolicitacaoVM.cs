@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Imobiliaria.Models.Solicitacao;
+using System;
 
 namespace Imobiliaria.Models
 {

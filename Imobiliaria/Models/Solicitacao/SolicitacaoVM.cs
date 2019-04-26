@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Imobiliaria.Models
+namespace Imobiliaria.Models.Solicitacao
 {
     public class SolicitacaoVM
     {
@@ -9,6 +9,6 @@ namespace Imobiliaria.Models
         public DateTime DataVistoria { get; set; }
         public string IdVistoriados { get; set; }
         public string IdSolicitador { get; set; }
-        public bool Ativo { get; set; }
+        public byte Status { get; set; }
     }
 }

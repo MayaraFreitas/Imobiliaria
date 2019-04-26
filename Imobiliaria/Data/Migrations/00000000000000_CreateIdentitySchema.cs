@@ -169,8 +169,9 @@ namespace Imobiliaria.Data.Migrations
                     Cep = table.Column<string>(maxLength: 10, nullable: false),
                     Bairro = table.Column<string>(maxLength: 256, nullable: false),
                     Cidade = table.Column<string>(maxLength: 256, nullable: false),
-                    Ativo = table.Column<bool>(nullable: false),
-                    Numero = table.Column<string>(maxLength: 10, nullable: false)
+                    Estado = table.Column<string>(maxLength: 2, nullable: false),
+                    Numero = table.Column<string>(maxLength: 10, nullable: false),
+                    Ativo = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -181,7 +182,7 @@ namespace Imobiliaria.Data.Migrations
             #endregion Tabela Endereco
 
             #region Tabela Empresa
-            /*migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "Empresa",
                 columns: table => new
                 {
@@ -208,40 +209,8 @@ namespace Imobiliaria.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 }
-            );*/
-            #endregion
-
-            #region Tabela Imovel
-            migrationBuilder.CreateTable(
-                name: "Imovel",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false),
-                    Area = table.Column<int>(nullable: false),
-                    Ativo = table.Column<bool>(nullable: false),
-                    Idade = table.Column<long>(nullable: false),
-                    Seguro = table.Column<bool>(nullable: false),
-                    IdEndereco = table.Column<int>(nullable: false),
-                    IdUsuario = table.Column<string>(maxLength: 450, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Imovel", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Imovel_Endereco_IdEndereco",
-                        column: x => x.IdEndereco,
-                        principalTable: "Endereco",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Imovel_AspNetUsers_IdUsuario",
-                        column: x => x.IdUsuario,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                }
             );
-            #endregion #region Tabela Imovel
+            #endregion
 
             #region Cliente
             migrationBuilder.CreateTable(
@@ -259,12 +228,44 @@ namespace Imobiliaria.Data.Migrations
                     Email = table.Column<string>(maxLength: 255, nullable: false),
                     Sexo = table.Column<byte>(nullable: false),
                     DataNascimento = table.Column<DateTime>(nullable: false),
-                    //IdEndereco = table.Column<int>(nullable: false),
-                    //IdEmpresa = table.Column<int>(nullable: false),
+                    IdEndereco = table.Column<int>(nullable: false),
+                    IdEmpresa = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Imovel", x => x.Id);/*
+                    table.PrimaryKey("PK_Cliente", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cliente_Endereco_IdEndereco",
+                        column: x => x.IdEndereco,
+                        principalTable: "Endereco",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Cliente_Empresa_IdEmpresa",
+                        column: x => x.IdEmpresa,
+                        principalTable: "Empresa",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                }
+            );
+            #endregion
+
+            #region Tabela Imovel
+            migrationBuilder.CreateTable(
+                name: "Imovel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Area = table.Column<int>(nullable: false),
+                    Ativo = table.Column<bool>(nullable: false),
+                    Idade = table.Column<long>(nullable: false),
+                    Seguro = table.Column<bool>(nullable: false),
+                    IdEndereco = table.Column<int>(nullable: false),
+                    IdCliente = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Imovel", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Imovel_Endereco_IdEndereco",
                         column: x => x.IdEndereco,
@@ -272,14 +273,14 @@ namespace Imobiliaria.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Imovel_Empresa_IdEmpresa",
-                        column: x => x.IdEmpresa,
-                        principalTable: "Empresa",
+                        name: "FK_Imovel_Cliente_IdCliente",
+                        column: x => x.IdCliente,
+                        principalTable: "Cliente",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);*/
+                        onDelete: ReferentialAction.NoAction);
                 }
             );
-            #endregion
+            #endregion #region Tabela Imovel
 
             #region Solicitacao
             migrationBuilder.CreateTable(
@@ -288,10 +289,11 @@ namespace Imobiliaria.Data.Migrations
                {
                    Id = table.Column<int>(nullable: false),
                    DataSolicitacao = table.Column<DateTime>(nullable: false),
-                   DataVistoria = table.Column<DateTime>(nullable: false),
-                   Ativo = table.Column<bool>(nullable: false),
+                   DataVistoria = table.Column<DateTime>(nullable: true),
+                   Status = table.Column<byte>(nullable: false),
                    IdVistoriador = table.Column<string>(maxLength: 450, nullable: false),
-                   IdSolicitador = table.Column<string>(maxLength: 450, nullable: false)
+                   IdSolicitador = table.Column<string>(maxLength: 450, nullable: false),
+                   IdImovel = table.Column<int>(nullable: false)
                },
                constraints: table =>
                {
@@ -308,6 +310,12 @@ namespace Imobiliaria.Data.Migrations
                        principalTable: "AspNetUsers",
                        principalColumn: "Id",
                        onDelete: ReferentialAction.NoAction);
+                   table.ForeignKey(
+                       name: "FK_Solicitacao_Imovel_IdEndereco",
+                       column: x => x.IdImovel,
+                       principalTable: "Imovel",
+                       principalColumn: "Id",
+                       onDelete: ReferentialAction.NoAction);
                }
             );
             #endregion Solicitacao
@@ -322,7 +330,7 @@ namespace Imobiliaria.Data.Migrations
                    DataVistoria = table.Column<DateTime>(nullable: false),
                    Descricao = table.Column<string>(maxLength: 8000, nullable: false),
                    IdVistoriador = table.Column<string>(maxLength: 450, nullable: false),
-                   IdSolicitador = table.Column<string>(maxLength: 450, nullable: false)
+                   IdSolicitador = table.Column<string>(maxLength: 450, nullable: false),
                },
                constraints: table =>
                {
@@ -351,7 +359,7 @@ namespace Imobiliaria.Data.Migrations
                    Id = table.Column<int>(nullable: false),
                    DataInicio = table.Column<DateTime>(nullable: true),
                    DataFim = table.Column<DateTime>(nullable: true),
-                   Ativo = table.Column<bool>(nullable: false),
+                   Status = table.Column<byte>(nullable: false),
                    IdSolicitacao = table.Column<int>(nullable: false)
                },
                constraints: table =>
@@ -485,6 +493,67 @@ namespace Imobiliaria.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            #endregion
+
+            #region Popular banco
+
+            #region Endereço
+
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] {"Id","Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] {1, "PA", "Belém", "66020-690", "Cidade Velha", "Passagem Maria Luísa", "654", true}
+            );
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] { 2, "DF", "Brasília", "Santa Maria", "72501-103", "Vila Carlos Nobre", "987", true }
+            );
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] { 3, "SP", "Sumare", "13175-380", "Altos de Sumaré", "Rua Xavier de Sampaio", "999", true }
+            );
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] { 4, "AC", "Rio Branco", "69304-550", "JD. Santa Candida", "Rua dos Bobos", "0", true }
+            );
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] { 5, "SP", "Campinas", "13080-270", "Villa Lobos", "Pedro Vieira de Souza", "144", true }
+            );
+
+            #endregion
+            /*
+            #region Empresa
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "", "" },
+                values: new object[] { }
+            );
+            #endregion
+
+            #region Cliente
+
+            migrationBuilder.InsertData(
+                table: "Cliente",
+                columns: new[] { "Id", "Nome", "Documento", "Cargo", "Telefone", "Celular", "Whatsapp", "Ativo", "Email", "Sexo", "DataNascimento", "IdEndereco", "IdEmpresa"},
+                values: new object[] { }
+            );
+
+            #endregion
+*/
+            /*
+             * migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] {"",""},
+                values: new object[] {}
+            );
+            */
+
 
             #endregion
         }

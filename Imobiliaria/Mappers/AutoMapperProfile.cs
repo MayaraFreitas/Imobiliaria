@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Imobiliaria.Data.Entities;
 using Imobiliaria.Models;
+using Imobiliaria.Models.Solicitacao;
 using Imobiliaria.Service.VOs;
+using Imobiliaria.Service.VOs.Solicitacao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,9 @@ namespace Imobiliaria.Mappers
         {
             CreateMap<Solicitacao, SolicitacaoVO>().ReverseMap();
             CreateMap<SolicitacaoVO, SolicitacaoVM>().ReverseMap();
+            CreateMap<SolicitacaoFiltroVO, SolicitacaoFiltroVM>().ReverseMap();
+            CreateMap<ViewSolicitacao, ViewSolicitacaoVO>().ReverseMap();
+            CreateMap<ViewSolicitacaoVO, ViewSolicitacaoVM>().ReverseMap();
             /*
             CreateMap<Cliente, ClienteVO>().ReverseMap();
             CreateMap<ClienteVO, ClienteVM>().ReverseMap();

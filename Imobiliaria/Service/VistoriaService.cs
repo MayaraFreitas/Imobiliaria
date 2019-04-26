@@ -1,17 +1,19 @@
 ﻿using Imobiliaria.Data.Repository;
-using Imobiliaria.Helpers;
+using Imobiliaria.Resources;
 using Imobiliaria.Service.VOs;
+using Imobiliaria.Service.VOs.Solicitacao;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Imobiliaria.Service
 {
     public interface IVistoriaService
     {
-        string InserirSolicitacao(SolicitacaoVO solicitacaoVO);
-        IList<SolicitacaoVO> FindAll();
+        #region Solicitação
+        string InserirSolicitacao(SolicitacaoVO solicitacao);
+        IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro);
+        IList<SolicitacaoVO> FindAll(); // somente para teste
+        #endregion
     }
     public class VistoriaService : IVistoriaService
     {
@@ -24,27 +26,61 @@ namespace Imobiliaria.Service
             _vistoriaRepo = vistoriaRepository;
         }
 
-        # endregion
+        #endregion
 
         #region Metodos
 
-        public string InserirSolicitacao(SolicitacaoVO solicitacaoVO)
+        #region Solicitacao
+
+        public string InserirSolicitacao(SolicitacaoVO solicitacao)
         {
-            string resultado = solicitacaoVO.Validar();
-            solicitacaoVO.Ativo = true; // alterar para constante
+            string resultado = solicitacao.Validar();
             if (!string.IsNullOrEmpty(resultado))
             {
                 return resultado;
             }
 
-            _vistoriaRepo.InserirSolicitacao(solicitacaoVO);
+            solicitacao.CriarSolicitacao();
+            _vistoriaRepo.InserirSolicitacao(solicitacao);
             return null;
+        }
+
+        public IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro)
+        {
+            string msg = filtro.Validar();
+            if (!string.IsNullOrEmpty(msg))
+            {
+                //adicionar out para retornar mensagem e adicionar try catch
+            }
+            return _vistoriaRepo.BuscarViewSolicitacao(filtro);
         }
 
         public IList<SolicitacaoVO> FindAll()
         {
             return _vistoriaRepo.FindAll();
         }
+
+        #endregion
+
+        #region Vistoria
+
+        public string InserirVistoria(VistoriaVO vistoria)
+        {
+            try
+            {
+                vistoria.IniciarVistoria();
+                //_vistoriaRepo.InserirVistoria(vistoria);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Logar exception
+                return Resource.Vistoria_Criar_ErroGenerico;
+            }
+            
+        }
+
+        #endregion
 
         #endregion
     }

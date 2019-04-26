@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Imobiliaria.Service.VOs
+namespace Imobiliaria.Models.Solicitacao
 {
-    public class SolicitacaoFiltroVO
+    public class SolicitacaoFiltroVM
     {
         public string NomeVistoriador { get; set; }
         public string NomeProprietario { get; set; }
@@ -12,11 +12,5 @@ namespace Imobiliaria.Service.VOs
         public DateTime? DataAgendamento { get; set; }
         public string EnderecoRua { get; set; }
         public string IdSolicitador { get; set; }
-
-        public string Validar()
-        {
-
-            return null;
-        }
     }
 }

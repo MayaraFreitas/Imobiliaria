@@ -14,7 +14,7 @@ namespace Imobiliaria.Data.Entities
         public bool Seguro { get; set; }
 
         public int IdCliente { get; set; }
-        public Cliente Cliente { get; set; }
+        //public Cliente Cliente { get; set; }
         //public int IdEndereco { get; set; }
         //public Endereco Endereco { get; set; }
     }

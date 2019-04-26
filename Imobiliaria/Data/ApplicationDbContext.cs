@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using Imobiliaria.Data.Entities;
+using Imobiliaria.Helpers;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,8 @@ namespace Imobiliaria.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         { }
-        public DbSet<Solicitacao>    Solicitacao { get; set; }
+        public DbSet<Solicitacao> Solicitacao { get; set; }
+        public DbSet<ViewSolicitacao> ViewSolicitacao { get; set; }
         public DbSet<Cliente>        Cliente { get; set; }
         public DbSet<Comodo>         Comodo { get; set; }
         public DbSet<Empresa>        Empresa { get; set; }
@@ -24,7 +26,16 @@ namespace Imobiliaria.Data
         public DbSet<Medicao>        Medicao { get; set; }
         public DbSet<LogSolicitacao> LogSolicitacao { get; set; }
 
+
+        #region override
         /*
+        protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Entity<Endereco>()
+            .HasData(
+                new Endereco { Id = 1, Estado = "PA", Cidade = "Belém", Cep = "66020-690", Bairro = "Cidade Velha", Rua = "Passagem Maria Luísa", Numero= "544", Ativo = true}
+        );
+
+        
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -32,13 +43,13 @@ namespace Imobiliaria.Data
                 .Property(p => p.Id).ValueGeneratedOnAdd();// (DatabaseGeneratedOption.Identity);
 
         }
-        */
-        /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Solicitacao>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
         }*/
+
+        #endregion
     }
 }
