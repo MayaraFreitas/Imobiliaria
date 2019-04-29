@@ -1,4 +1,5 @@
 ﻿using System;
+using Imobiliaria.Helpers;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -497,42 +498,58 @@ namespace Imobiliaria.Data.Migrations
             #endregion
 
             #region Popular banco
+            /*
+            #region Endere?o
 
-            #region Endereço
-
-            migrationBuilder.InsertData(
-                table: "Endereco",
-                columns: new[] {"Id","Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
-                values: new object[] {1, "PA", "Belém", "66020-690", "Cidade Velha", "Passagem Maria Luísa", "654", true}
-            );
+            // Endereco da empresa
             migrationBuilder.InsertData(
                 table: "Endereco",
                 columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
-                values: new object[] { 2, "DF", "Brasília", "Santa Maria", "72501-103", "Vila Carlos Nobre", "987", true }
+                values: new object[] { 1, "PA", "Bel?m", "66020-690", "Cidade Velha", "Passagem Maria Lu?sa", "654", true }
             );
+
+            // Endereco do cliente 1
             migrationBuilder.InsertData(
                 table: "Endereco",
                 columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
-                values: new object[] { 3, "SP", "Sumare", "13175-380", "Altos de Sumaré", "Rua Xavier de Sampaio", "999", true }
+                values: new object[] { 2, "DF", "Bras?lia", "Santa Maria", "72501-103", "Vila Carlos Nobre", "987", true }
             );
+
+            // Endereco do cliente 2
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] { 3, "SP", "Sumare", "13175-380", "Altos de Sumar?", "Rua Xavier de Sampaio", "999", true }
+            );
+
+            // Endereco do im?vel 1 
             migrationBuilder.InsertData(
                 table: "Endereco",
                 columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
                 values: new object[] { 4, "AC", "Rio Branco", "69304-550", "JD. Santa Candida", "Rua dos Bobos", "0", true }
             );
+
+            // Endereco do im?vel 2
             migrationBuilder.InsertData(
                 table: "Endereco",
                 columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
                 values: new object[] { 5, "SP", "Campinas", "13080-270", "Villa Lobos", "Pedro Vieira de Souza", "144", true }
             );
 
+            // Endereco do im?vel 3
+            migrationBuilder.InsertData(
+                table: "Endereco",
+                columns: new[] { "Id", "Estado", "Cidade", "Cep", "Bairro", "Rua", "Numero", "Ativo" },
+                values: new object[] { 6, "SP", "V?rzea Grande", "78145-470", "S?o Sim?o", "Rua Mato Grosso", "996", true }
+            );
+
             #endregion
-            /*
+
             #region Empresa
             migrationBuilder.InsertData(
                 table: "Endereco",
-                columns: new[] { "", "" },
-                values: new object[] { }
+                columns: new[] { "Id", "NomeFantasia", "Documento", "InscricaoEstadual", "InscricaoMunicipal", "Email", "Site", "Telefone", "TelefoneCelular", "Ativo", "IdEndereco" },
+                values: new object[] { 1, "HidroleoLtda", "45142110000126", "085648784071", "hidroleo@gmail.com", "www.hidroleo.com.br", "1938836523", "19998563214", 1, 1 }
             );
             #endregion
 
@@ -540,12 +557,39 @@ namespace Imobiliaria.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Cliente",
-                columns: new[] { "Id", "Nome", "Documento", "Cargo", "Telefone", "Celular", "Whatsapp", "Ativo", "Email", "Sexo", "DataNascimento", "IdEndereco", "IdEmpresa"},
-                values: new object[] { }
+                columns: new[] { "Id", "Nome", "Documento", "Cargo", "Telefone", "Celular", "Whatsapp", "Ativo", "Email", "Sexo", "DataNascimento", "IdEndereco", "IdEmpresa" },
+                values: new object[] { 1, "Levi Thales Raul Caldeira", "85916306539", Constants.Cargo.Cliente, "1938837799", "19993256748", Constants.TemWhatsapp.Sim, Constants.StatusAtivo.Ativo, "levithales@gmail.com", Constants.Sexo.Masculino, new DateTime(1980, 10, 11), 2, 1 }
+            );
+
+            migrationBuilder.InsertData(
+                table: "Cliente",
+                columns: new[] { "Id", "Nome", "Documento", "Cargo", "Telefone", "Celular", "Whatsapp", "Ativo", "Email", "Sexo", "DataNascimento", "IdEndereco", "IdEmpresa" },
+                values: new object[] { 2, "Maya Sueli da Luz", "15819604091", Constants.Cargo.Cliente, "1938386262", "19999366897", Constants.TemWhatsapp.Nao, Constants.StatusAtivo.Ativo, "MayaSueli@hotmail.com", Constants.Sexo.Feminino, new DateTime(1977, 03, 07), 3, 1 }
             );
 
             #endregion
-*/
+
+            #region Imovel
+
+            migrationBuilder.InsertData(
+                table: "Imovel",
+                columns: new[] { "(Id", "Area", "Ativo", "Idade", "Seguro", "IdEndereco", "IdCliente" },
+                values: new object[] { 1, 80, Constants.StatusAtivo.Ativo, 20, Constants.SimNao.Sim, 4, 1 }
+            );
+
+            migrationBuilder.InsertData(
+                table: "Imovel",
+                columns: new[] { "(Id", "Area", "Ativo", "Idade", "Seguro", "IdEndereco", "IdCliente" },
+                values: new object[] { 2, 90, Constants.StatusAtivo.Ativo, 3, Constants.SimNao.Nao, 5, 1 }
+            );
+
+            migrationBuilder.InsertData(
+                table: "Imovel",
+                columns: new[] { "(Id", "Area", "Ativo", "Idade", "Seguro", "IdEndereco", "IdCliente" },
+                values: new object[] { 3, 95, Constants.StatusAtivo.Ativo, 6, Constants.SimNao.Nao, 6, 1 }
+            );
+            #endregion
+
             /*
              * migrationBuilder.InsertData(
                 table: "Endereco",
@@ -553,7 +597,6 @@ namespace Imobiliaria.Data.Migrations
                 values: new object[] {}
             );
             */
-
 
             #endregion
         }
