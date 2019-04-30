@@ -1,14 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Imobiliaria",
-    "\\Imobiliaria\\Imobi.Infra\\bin",
-    "\\Imobiliaria\\Service",
-    "\\Imobiliaria\\Service\\VOs",
-    "\\Imobi\\Imobi",
-    "\\Imobi\\Imobi\\bin",
-    "\\Imobi\\Imobi\\bin\\Release"
+    "\\Imobiliaria\\Service\\VOs"
   ],
-  "SelectedNode": "\\Imobiliaria\\Service\\VOs\\SolicitacaoVO.cs",
+  "SelectedNode": "\\Imobiliaria.sln",
   "PreviewInSolutionExplorer": false
 }

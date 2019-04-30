@@ -10,5 +10,6 @@ namespace Imobiliaria.Models.Solicitacao
         public string IdVistoriados { get; set; }
         public string IdSolicitador { get; set; }
         public byte Status { get; set; }
+        public int IdImovel { get; set; }
     }
 }

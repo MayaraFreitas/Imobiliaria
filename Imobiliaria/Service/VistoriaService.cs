@@ -13,6 +13,7 @@ namespace Imobiliaria.Service
         string InserirSolicitacao(SolicitacaoVO solicitacao);
         IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro);
         IList<SolicitacaoVO> FindAll(); // somente para teste
+        SolicitacaoVO ExportarPDF(int codigo);//teste relatorio
         #endregion
     }
     public class VistoriaService : IVistoriaService
@@ -60,6 +61,10 @@ namespace Imobiliaria.Service
             return _vistoriaRepo.FindAll();
         }
 
+        public SolicitacaoVO ExportarPDF(int codigo)
+        {
+            return _vistoriaRepo.ExportarPDF(codigo);
+        }
         #endregion
 
         #region Vistoria

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Imobiliaria.Helpers;
 using Imobiliaria.Models;
 using Imobiliaria.Models.Solicitacao;
 using Imobiliaria.Service;
@@ -10,6 +11,7 @@ using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Rotativa.AspNetCore;
 
 namespace Imobiliaria.Controllers
 {
@@ -80,6 +82,27 @@ namespace Imobiliaria.Controllers
             return View();
         }
 
+        public IActionResult SolicitacaoPDF()
+        {
+            SolicitacaoVO solicitacaoVO = _vistoriaService.ExportarPDF(2);
+
+
+            /* SolicitacaoVM solicitacao = new SolicitacaoVM()
+             {
+                 Id = 1,
+                 DataSolicitacao = new DateTime(2019,04,25),
+                 DataVistoria = new DateTime(2019, 04, 25),
+                 IdVistoriados = "1",
+                 IdSolicitador = "1"
+             };*/
+
+            SolicitacaoVM solicitacao = _mapper.Map<SolicitacaoVM>(solicitacaoVO);
+
+            var pdf = new ViewAsPdf(solicitacao);
+
+            return pdf;
+        }
+
         #region Metodos de simulação
         private string testeInserirSolicitação()
         {
@@ -87,10 +110,12 @@ namespace Imobiliaria.Controllers
             //var test = _userManager.GetUserId(HttpContext.User);
             SolicitacaoVO solicitacao = new SolicitacaoVO()
             {
-                DataSolicitacao = new DateTime(2019,04,19),
+                DataSolicitacao = new DateTime(2019, 04, 19),
                 DataVistoria = new DateTime(2019, 05, 10),
                 IdSolicitador = _userManager.GetUserId(HttpContext.User),
-                IdVistoriador = _userManager.GetUserId(HttpContext.User)
+                IdVistoriador = _userManager.GetUserId(HttpContext.User),
+                Status = Constants.StatusAtivo.Ativo,
+                IdImovel = 1
             };
 
             _vistoriaService.InserirSolicitacao(solicitacao);

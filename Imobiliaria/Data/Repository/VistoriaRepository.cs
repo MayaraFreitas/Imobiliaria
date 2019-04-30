@@ -15,6 +15,7 @@ namespace Imobiliaria.Data.Repository
         void InserirSolicitacao(SolicitacaoVO solicitacao);
         IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro);
         SolicitacaoVO BuscarSolicitacaoDetalhe(int codigoSolicitacao);
+        SolicitacaoVO ExportarPDF(int codigo);
         #endregion
 
         #region Vistoria
@@ -71,6 +72,11 @@ namespace Imobiliaria.Data.Repository
             return _mapper.Map<SolicitacaoVO>(solicitacao);
         }
 
+        public SolicitacaoVO ExportarPDF(int codigo)
+        {
+            Solicitacao solicitacao = _context.Solicitacao.Where(s => s.Id == codigo).First();
+            return _mapper.Map<SolicitacaoVO>(solicitacao);
+        }
         #endregion
 
         #region Vistoria

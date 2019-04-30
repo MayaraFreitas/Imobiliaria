@@ -120,6 +120,9 @@
   <data name="Comum_Erro_Data_MenorQueAtual" xml:space="preserve">
     <value>Ops! A data {0} é menor que a data atual!</value>
   </data>
+  <data name="Titulo_DataSolicitacao" xml:space="preserve">
+    <value>Data da Solicitação:</value>
+  </data>
   <data name="Usuario_Erro_SolicitadorInvalido" xml:space="preserve">
     <value>Solicitador Inválido!</value>
   </data>
