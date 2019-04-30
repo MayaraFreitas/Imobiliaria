@@ -1,0 +1,23 @@
+-- Endereco
+INSERT INTO [dbo].[Endereco] ([Id], [Estado], [Cidade], [Cep], [Bairro], [Rua], [Numero], [Ativo]) VALUES (1, 'PA', 'BelÍm', '66020-690', 'Cidade Velha', 'Passagem Maria LuÍsa', '654', 1) -- Endereco da empresa
+INSERT INTO [dbo].[Endereco] ([Id], [Estado], [Cidade], [Cep], [Bairro], [Rua], [Numero], [Ativo]) VALUES (2, 'DF', 'Brasília', '72501-103', 'Santa Maria', 'Vila Carlos Nobre', '987', 1) -- Endereco do cliente 1
+INSERT INTO [dbo].[Endereco] ([Id], [Estado], [Cidade], [Cep], [Bairro], [Rua], [Numero], [Ativo]) VALUES (3, 'SP', 'Sumare', '13175-380', 'Altos de Sumar?', 'Rua Xavier de Sampaio', '999', 1) -- Endereco do cliente 2
+INSERT INTO [dbo].[Endereco] ([Id], [Estado], [Cidade], [Cep], [Bairro], [Rua], [Numero], [Ativo]) VALUES (4, 'AC', 'Rio Branco', '69304-550', 'JD. Santa Candida', 'Rua dos Bobos', '0', 1) -- Endereco do imóvel 1
+INSERT INTO [dbo].[Endereco] ([Id], [Estado], [Cidade], [Cep], [Bairro], [Rua], [Numero], [Ativo]) VALUES (5, 'SP', 'Campinas', '13080-270', 'Villa Lobos', 'Pedro Vieira de Souza', '144', 1) -- Endereco do imóvel 2
+INSERT INTO [dbo].[Endereco] ([Id], [Estado], [Cidade], [Cep], [Bairro], [Rua], [Numero], [Ativo]) VALUES (6, 'SP', 'Varzea Grande', '78145-470', 'S?o Sim?o', 'Rua Mato Grosso', '996', 1) -- Endereco do imóvel 3
+GO
+
+-- Empresa
+INSERT INTO [dbo].[Empresa] ([Id], [RazaoSocial], [NomeFantasia], [Documento], [InscricaoEstadual], [InscricaoMunicipal], [Email], [Site], [Telefone], [TelefoneCelular], [Ativo], [IdEndereco]) VALUES (1, 'HidroleoLtda', 'HidroLeo', '45142110000126', '085648784071',null, 'hidroleo@gmail.com', 'www.hidroleo.com.br', '1938836523', '19998563214', 1, 1)
+GO
+
+-- Cliente
+INSERT INTO [dbo].[Cliente] ([Id], [Nome], [Documento], [Cargo], [Telefone], [Celular], [Whatsapp], [Ativo], [Email], [Sexo], [DataNascimento], [IdEndereco], [IdEmpresa]) VALUES ( 1, 'Levi Thales Raul Caldeira', '85916306539', 3, '1938837799', '19993256748', 1, 1, 'levithales@gmail.com', 2, '19761231', 2, 1 )
+INSERT INTO [dbo].[Cliente] ([Id], [Nome], [Documento], [Cargo], [Telefone], [Celular], [Whatsapp], [Ativo], [Email], [Sexo], [DataNascimento], [IdEndereco], [IdEmpresa]) VALUES ( 2, 'Maya Sueli da Luz', '15819604091', 3, '1938386262', '19999366897', 2, 1, 'MayaSueli@hotmail.com', 1, '19810611', 3, 1 )
+GO
+
+-- Imovel
+INSERT INTO [dbo].[Imovel] ([Id], [Area], [Ativo], [Idade], [Seguro], [IdEndereco], [IdCliente]) VALUES (1, 80, 1, 20, 1, 4, 1)
+INSERT INTO [dbo].[Imovel] ([Id], [Area], [Ativo], [Idade], [Seguro], [IdEndereco], [IdCliente]) VALUES (2, 90, 1, 3, 2, 5, 1)
+INSERT INTO [dbo].[Imovel] ([Id], [Area], [Ativo], [Idade], [Seguro], [IdEndereco], [IdCliente]) VALUES (3, 95, 1, 6, 2, 6, 2)
+GO
