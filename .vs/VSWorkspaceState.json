@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Imobiliaria\\Service",
     "\\Imobiliaria\\Service\\VOs"
   ],
-  "SelectedNode": "\\Imobiliaria.sln",
+  "SelectedNode": "\\Imobiliaria",
   "PreviewInSolutionExplorer": false
 }
