@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Imobiliaria.Service;
 using Imobiliaria.Data.Repository;
 using Imobiliaria.Mappers;
+using Rotativa.AspNetCore;
+
 
 namespace Imobiliaria
 {
@@ -96,6 +98,8 @@ namespace Imobiliaria
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
+
+            RotativaConfiguration.Setup(env);
+        } 
     }
 }

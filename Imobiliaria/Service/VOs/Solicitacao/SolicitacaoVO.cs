@@ -12,6 +12,7 @@ namespace Imobiliaria.Service.VOs
         public string IdVistoriador { get; set; }
         public string IdSolicitador { get; set; }
         public byte Status { get; set; }
+        public int IdImovel { get; set; }
 
         public string Validar()
         {
