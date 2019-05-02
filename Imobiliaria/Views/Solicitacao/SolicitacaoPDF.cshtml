@@ -7,83 +7,44 @@
 <head>
     <meta charset="utf-8">
     <title>SolicitacaoPDF</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
-    <script src="script.js"></script>
-    <link href="~/css/demo.css" rel="stylesheet" />
-
 </head>
 <body>
     <header>
-        <h1>Invoice</h1>
-        <address contenteditable>
-            <p>@Resource.Titulo_DataSolicitacao @Model.DataSolicitacao</p>
-            <p>101 E. Chapman Ave<br>Orange, CA 92866</p>
-            <p>(800) 555-1234</p>
-        </address>
-        <span><img src="D:\DemoRotativa\DemoRotativa\DemoRotativa\wwwroot\images\Invoice.jpg" /><input type="file" accept="image/*"></span>
+        <h1 style="text-align: center; "><img src=”C:\Users\lcsdg\Source\Repos\MayaraFreitas\Imobiliaria\Imobiliaria\wwwroot\images\logoTeste.jpg” alt=”Texto” />         Laudo de vistoria</h1>
+        <p style="font-weight: bold;">Vitoria do imóvel sito à:</p>
+        <hr />
+        <p style="font-weight: bold;">O qual foi alocado ao Sr.[a]:</p>
+        <hr />
+        <p style="font-weight: bold;">
+            O presente "auto de vistoria" foi executado pelos abaixo assinados e passa a ser parte integrante do contrato
+            de locação, para todos os fins e efeitos de direito.
+        </p>
     </header>
-    <article>
-        <h1>Recipient</h1>
-        <address contenteditable>
-            <p>Demo Company<br>c/o Saineshwar</p>
-        </address>
-        <table class="meta">
-            <tr>
-                <th><span contenteditable>Invoice #</span></th>
-                <td><span contenteditable>000001</span></td>
-            </tr>
-            <tr>
-                <th><span contenteditable>Date</span></th>
-                <td><span contenteditable>January 1, 2018</span></td>
-            </tr>
-            <tr>
-                <th><span contenteditable>Amount Due</span></th>
-                <td><span id="prefix" contenteditable>र </span><span>600.00</span></td>
-            </tr>
-        </table>
-        <table class="inventory">
-            <thead>
-                <tr>
-                    <th><span contenteditable>Item</span></th>
-                    <th><span contenteditable>Description</span></th>
-                    <th><span contenteditable>Rate</span></th>
-                    <th><span contenteditable>Quantity</span></th>
-                    <th><span contenteditable>Price</span></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a class="cut">-</a><span contenteditable>Front End Consultation</span></td>
-                    <td><span contenteditable>Experience Review</span></td>
-                    <td><span data-prefix>र </span><span contenteditable>150.00</span></td>
-                    <td><span contenteditable>4</span></td>
-                    <td><span data-prefix>र </span><span>600.00</span></td>
-                </tr>
-            </tbody>
-        </table>
+    <p style="font-weight: bold; color:crimson">Estado do imóvel:</p>
+    <p style="font-weight: bold; color:crimson">Idade aproximada do imóvel:</p>
+    <p style="font-weight: bold; color:crimson">Possui energia eletrica:</p>
+    <p style="font-weight: bold; color:crimson">Possui água:</p>
+    <p style="font-weight: bold; color:crimson">Possui gás:</p>
 
-        <table class="balance">
-            <tr>
-                <th><span contenteditable>Total</span></th>
-                <td><span data-prefix>र </span><span>600.00</span></td>
-            </tr>
-            <tr>
-                <th><span contenteditable>Amount Paid</span></th>
-                <td><span data-prefix>र </span><span contenteditable>0.00</span></td>
-            </tr>
-            <tr>
-                <th><span contenteditable>Balance Due</span></th>
-                <td><span data-prefix>र </span><span>600.00</span></td>
-            </tr>
-        </table>
-    </article>
+    <h2>Comodos</h2>
 
-    <aside>
-        <h1><span contenteditable>Additional Notes</span></h1>
-        <div contenteditable>
-            <p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
-        </div>
-    </aside>
+    <table style="width:100%; border: 1px solid black;border-collapse: collapse;">
+        <tr>
+            <th style="font-weight: bold;">Nome do Comodo</th>
+            <th style="font-weight: bold;">Data Inicio</th>
+            <th style="font-weight: bold;">Data Termino</th>
+            <th style="font-weight: bold;">Cor Teto</th>
+            <th style="font-weight: bold;">Cor Parede</th>
+            <th style="font-weight: bold;">Observação</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+    </table>
 </body>
 </html>
