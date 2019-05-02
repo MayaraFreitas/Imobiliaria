@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Imobiliaria.Service.VOs
+namespace Imobiliaria.Models.Vistoria
 {
-    public class MedicaoVO
+    public class MedicaoVM
     {
         public int Id { get; set; }
         public string Agua { get; set; }
@@ -11,6 +11,6 @@ namespace Imobiliaria.Service.VOs
         public string Gas { get; set; }
         public bool Ativo { get; set; }
 
-        public VistoriaVO Vistoria { get; set; }
+        public VistoriaVM Vistoria { get; set; }
     }
 }

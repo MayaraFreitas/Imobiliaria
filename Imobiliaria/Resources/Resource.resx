@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Comodo_Criar_ErroGenerico" xml:space="preserve">
+    <value>Ops! Houve um erro ao gerar o comodo. Entre em contato com o time Imobi.</value>
+  </data>
   <data name="Comum_Erro_Data_MenorQueAtual" xml:space="preserve">
     <value>Ops! A data {0} é menor que a data atual!</value>
+  </data>
+  <data name="Medicao_Criar_ErroGenerico" xml:space="preserve">
+    <value>Ops! Houve um erro ao gerar a medição. Entre em contato com o time Imobi.</value>
+  </data>
+  <data name="Nota_Criar_ErroGenerico" xml:space="preserve">
+    <value>Ops! Houve um erro ao gerar um nota. Entre em contato com o time Imobi.</value>
   </data>
   <data name="Titulo_DataSolicitacao" xml:space="preserve">
     <value>Data da Solicitação:</value>
