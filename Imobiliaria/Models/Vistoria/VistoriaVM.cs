@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Imobiliaria.Models
+namespace Imobiliaria.Models.Vistoria
 {
     public class VistoriaVM
     {

@@ -2,6 +2,7 @@
 using Imobiliaria.Resources;
 using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
+using Imobiliaria.Service.VOs.Vistoria;
 using System;
 using System.Collections.Generic;
 
@@ -14,6 +15,17 @@ namespace Imobiliaria.Service
         IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro);
         IList<SolicitacaoVO> FindAll(); // somente para teste
         SolicitacaoVO ExportarPDF(int codigo);//teste relatorio
+        #endregion
+
+        #region Vistoria
+
+        string InserirVistoria(VistoriaVO vistoriaVO);
+        string InserirComodo(ComodoVO comodoVO);
+        IEnumerable<ViewComodoVO> BuscarViewComodo(int idVistoria);
+        string InserirNota(NotaVO notaVO);
+        IEnumerable<ViewNotaVO> BuscarViewNota(int idComodo);
+        string InserirMedicao(MedicaoVO medicaoVO);
+
         #endregion
     }
     public class VistoriaService : IVistoriaService
@@ -69,12 +81,12 @@ namespace Imobiliaria.Service
 
         #region Vistoria
 
-        public string InserirVistoria(VistoriaVO vistoria)
+        public string InserirVistoria(VistoriaVO vistoriaVO)
         {
             try
             {
-                vistoria.IniciarVistoria();
-                //_vistoriaRepo.InserirVistoria(vistoria);
+                vistoriaVO.IniciarVistoria();
+                _vistoriaRepo.InserirVistoria(vistoriaVO);
                 return null;
             }
             catch (Exception ex)
@@ -82,8 +94,84 @@ namespace Imobiliaria.Service
                 // Logar exception
                 return Resource.Vistoria_Criar_ErroGenerico;
             }
+        }
+
+        #region Comodos
+        public string InserirComodo(ComodoVO comodoVO)
+        {
+            try
+            {
+                string msg = comodoVO.Validar();
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    return msg;
+                }
+                _vistoriaRepo.InserirComodo(comodoVO);
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return Resource.Nota_Criar_ErroGenerico;
+            }
             
         }
+        public IEnumerable<ViewComodoVO> BuscarViewComodo(int idVistoria)
+        {
+            return _vistoriaRepo.BuscarViewComodo(idVistoria);
+        }
+        #endregion
+
+        #region Notas
+
+        public string InserirNota(NotaVO notaVO)
+        {
+            try
+            {
+                string msg = notaVO.Validar();
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    return msg;
+                }
+                _vistoriaRepo.InserirNota(notaVO);
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return Resource.Nota_Criar_ErroGenerico;
+            }
+        }
+
+        public IEnumerable<ViewNotaVO> BuscarViewNota(int idComodo)
+        {
+            return _vistoriaRepo.BuscarViewNota(idComodo);
+        }
+
+        #endregion
+
+        #region Medicao
+
+        public string InserirMedicao(MedicaoVO medicaoVO)
+        {
+            try
+            {
+                string msg = medicaoVO.Validar();
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    return msg;
+                }
+                _vistoriaRepo.InserirMedicao(medicaoVO);
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return Resource.Medicao_Criar_ErroGenerico;
+            }
+        }
+
+        #endregion
 
         #endregion
 

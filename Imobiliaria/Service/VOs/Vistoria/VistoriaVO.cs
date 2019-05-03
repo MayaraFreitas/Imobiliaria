@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Imobiliaria.Service.VOs
+namespace Imobiliaria.Service.VOs.Vistoria
 {
     public class VistoriaVO
     {

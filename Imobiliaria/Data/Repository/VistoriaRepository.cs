@@ -2,10 +2,9 @@
 using Imobiliaria.Data.Entities;
 using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
-using System;
+using Imobiliaria.Service.VOs.Vistoria;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Imobiliaria.Data.Repository
 {
@@ -19,7 +18,12 @@ namespace Imobiliaria.Data.Repository
         #endregion
 
         #region Vistoria
-        string InserirVistoria(Vistoria vistoriaVO);
+        void InserirVistoria(VistoriaVO vistoriaVO);
+        void InserirComodo(ComodoVO comodoVO);
+        IEnumerable<ViewComodoVO> BuscarViewComodo(int idVistoria);
+        void InserirNota(NotaVO notaVO);
+        IEnumerable<ViewNotaVO> BuscarViewNota(int idComodo);
+        void InserirMedicao(MedicaoVO medicaoVO);
         #endregion
 
         // teste
@@ -41,6 +45,8 @@ namespace Imobiliaria.Data.Repository
             _mapper = mapper;
         }
         #endregion
+
+        #region Metodos
 
         #region Solicitação
         public void InserirSolicitacao(SolicitacaoVO solicitacaoVO)
@@ -81,13 +87,48 @@ namespace Imobiliaria.Data.Repository
 
         #region Vistoria
 
-        public string InserirVistoria(Vistoria vistoriaVO)
+        public void InserirVistoria(VistoriaVO vistoriaVO)
         {
-            //Vistoria vistoria = _mapper.Map
-
-
-            return null;
+            Vistoria vistoria = _mapper.Map<Vistoria>(vistoriaVO);
+            _context.Vistoria.Add(vistoria);
+            _context.SaveChanges();
         }
+
+        #region Comodo
+        public void InserirComodo(ComodoVO comodoVO)
+        {
+            Comodo comodo = _mapper.Map<Comodo>(comodoVO);
+            _context.Comodo.Add(comodo);
+            _context.SaveChanges();
+        }
+        public IEnumerable<ViewComodoVO> BuscarViewComodo(int idVistoria)
+        {
+            IEnumerable<ViewComodo> lstComodo =  _context.ViewComodo.Where(c => c.IdVistoria == idVistoria).ToList();
+            return _mapper.Map<IEnumerable<ViewComodoVO>>(lstComodo);
+        }
+        #endregion
+
+        #region Nota
+        public void InserirNota(NotaVO notaVO)
+        {
+            Nota nota = _mapper.Map<Nota>(notaVO);
+            _context.Nota.Add(nota);
+            _context.SaveChanges();
+        }
+        public IEnumerable<ViewNotaVO> BuscarViewNota(int idComodo)
+        {
+            IEnumerable<ViewNota> lstViewNota = _context.ViewNota.Where(v => v.IdComodo == idComodo).ToList();
+            return _mapper.Map<IEnumerable<ViewNotaVO>>(lstViewNota);
+        }
+        #endregion
+
+        public void InserirMedicao(MedicaoVO medicaoVO)
+        {
+            Medicao medicao = _mapper.Map<Medicao>(medicaoVO);
+            _context.Medicao.Add(medicao);
+            _context.SaveChanges();
+        }
+
 
         #endregion
 
@@ -97,6 +138,8 @@ namespace Imobiliaria.Data.Repository
             IList<Solicitacao> lstSolicitacao = _context.Solicitacao.ToList();
             return _mapper.Map<IList<SolicitacaoVO>>(lstSolicitacao);
         }
+        #endregion
+
         #endregion
     }
 }

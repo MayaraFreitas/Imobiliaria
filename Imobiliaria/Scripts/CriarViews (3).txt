@@ -19,3 +19,29 @@ FROM [Solicitacao] [S]
 LEFT JOIN [Imovel] [I] ON [I].[Id] = [S].[IdImovel]
 LEFT JOIN [Endereco] [E] ON  [E].[Id] = [I].[Id]
 GO
+
+-- Criar vire de comodos
+CREATE VIEW [dbo].[ViewComodo]
+AS
+
+SELECT 
+	[C].[Id],
+	[C].[IdVistoria],
+	[C].[Ativo],
+	[C].[Nome],
+	[C].[CorTeto],
+	[C].[CorParede],
+	(SELECT COUNT([N].[Id]) FROM [dbo].[Nota] [N] WHERE [N].[IdComodo] = [C].[Id]) AS [NumeroDeNotas] 
+FROM [dbo].[Comodo] [C] WITH(NOLOCK)
+
+-- Criar view de Notas
+CREATE VIEW [dbo].[ViewNota]
+AS 
+
+SELECT
+	[N].[Id],
+	[N].[IdComodo],
+	[N].[Titulo],
+	[N].[Descricao]
+FROM [dbo].[Nota] [N] WITH(NOLOCK)
+GO;
