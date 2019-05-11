@@ -60,12 +60,14 @@ namespace Imobiliaria
             #region Servico
 
             services.AddTransient<IVistoriaService, VistoriaService>();
+            services.AddTransient<IGenericoService, GenericoService>();
 
             #endregion
 
             #region Repository
 
             services.AddTransient<IVistoriaRepository, VistoriaRepository>();
+            services.AddTransient<IGenericoRepository, GenericoRepository>();
 
             #endregion
 

@@ -15,6 +15,9 @@ namespace Imobiliaria.Data
             : base(options)
         { }
 
+        // Usuario
+        public DbSet<ViewUsuario> ViewUsuario { get; set; }
+
         // Solicitacao
         public DbSet<Solicitacao> Solicitacao { get; set; }
         public DbSet<ViewSolicitacao> ViewSolicitacao { get; set; }
