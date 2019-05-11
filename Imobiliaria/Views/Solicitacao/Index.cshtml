@@ -5,5 +5,12 @@
 
 <h2>Index</h2>
 <form method="post">
-    <button type="submit"> Inserir </button>
+    <a asp-area="" asp-controller="Solicitacao" asp-action="Criar">Criar</a>
+    <br> <br>
+    <p>#Registros encontrados: @Model.LstViewSolicitacaoVM.Count()</p>
+    <br>
+    @foreach (var solicitacao in Model.LstViewSolicitacaoVM)
+    {
+        <p>Id: @solicitacao.Id</p>
+    }
 </form>

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Imobiliaria.Data.Entities;
+using Imobiliaria.Helpers;
 using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
 using Imobiliaria.Service.VOs.Vistoria;
@@ -58,18 +59,36 @@ namespace Imobiliaria.Data.Repository
 
         public IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro)
         {
-            IEnumerable<ViewSolicitacao> lstSolicitacao = _context.ViewSolicitacao.Where(s =>
-            (string.IsNullOrEmpty(filtro.NomeVistoriador) || s.NomeVistoriador.Contains(filtro.NomeVistoriador)) &&
-            (string.IsNullOrEmpty(filtro.NomeProprietario) || s.NomeVistoriador.Contains(filtro.NomeProprietario)) &&
-            (!filtro.Codigo.HasValue || s.Id == filtro.Codigo) &&
-            (!filtro.Status.HasValue || s.Status == filtro.Status) &&
-            (!filtro.DataSolicitacao.HasValue || s.DataVistoria >= filtro.DataSolicitacao.Value.Date) &&
-            (!filtro.DataAgendamento.HasValue || s.DataVistoria < filtro.DataAgendamento.Value.Date) &&
-            (string.IsNullOrEmpty(filtro.EnderecoRua) || s.Rua == filtro.EnderecoRua) &&
-            filtro.IdSolicitador == s.IdSolicitador
-            ).ToList();
+            if (filtro.TipoUsuario == Constants.Cargo.Administrativo)
+            {
+                IEnumerable<ViewSolicitacao> lstSolicitacao = _context.ViewSolicitacao.Where(s =>
+                (string.IsNullOrEmpty(filtro.NomeVistoriador) || s.NomeVistoriador.Contains(filtro.NomeVistoriador)) &&
+                (string.IsNullOrEmpty(filtro.NomeProprietario) || s.NomeVistoriador.Contains(filtro.NomeProprietario)) &&
+                (!filtro.Codigo.HasValue || s.Id == filtro.Codigo) &&
+                (!filtro.Status.HasValue || s.Status == filtro.Status) &&
+                (!filtro.DataSolicitacao.HasValue || s.DataVistoria >= filtro.DataSolicitacao.Value.Date) &&
+                (!filtro.DataAgendamento.HasValue || s.DataVistoria < filtro.DataAgendamento.Value.Date) &&
+                (string.IsNullOrEmpty(filtro.EnderecoRua) || s.Rua == filtro.EnderecoRua) &&
+                filtro.IdUsuario == s.IdSolicitador
+                ).ToList();
 
-            return _mapper.Map<IEnumerable<ViewSolicitacaoVO>>(lstSolicitacao);
+                return _mapper.Map<IEnumerable<ViewSolicitacaoVO>>(lstSolicitacao);
+            }
+            else
+            {
+                IEnumerable<ViewSolicitacao> lstSolicitacao = _context.ViewSolicitacao.Where(s =>
+                (string.IsNullOrEmpty(filtro.NomeVistoriador) || s.NomeVistoriador.Contains(filtro.NomeVistoriador)) &&
+                (string.IsNullOrEmpty(filtro.NomeProprietario) || s.NomeVistoriador.Contains(filtro.NomeProprietario)) &&
+                (!filtro.Codigo.HasValue || s.Id == filtro.Codigo) &&
+                (!filtro.Status.HasValue || s.Status == filtro.Status) &&
+                (!filtro.DataSolicitacao.HasValue || s.DataVistoria >= filtro.DataSolicitacao.Value.Date) &&
+                (!filtro.DataAgendamento.HasValue || s.DataVistoria < filtro.DataAgendamento.Value.Date) &&
+                (string.IsNullOrEmpty(filtro.EnderecoRua) || s.Rua == filtro.EnderecoRua) &&
+                filtro.IdUsuario == s.IdVistoriador
+                ).ToList();
+
+                return _mapper.Map<IEnumerable<ViewSolicitacaoVO>>(lstSolicitacao);
+            } 
         }
 
         public SolicitacaoVO BuscarSolicitacaoDetalhe(int codigoSolicitacao)

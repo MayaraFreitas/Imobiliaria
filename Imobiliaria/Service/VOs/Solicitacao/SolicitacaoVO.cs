@@ -16,7 +16,7 @@ namespace Imobiliaria.Service.VOs
 
         public string Validar()
         {
-            if (DataVistoria <= DateTime.UtcNow)
+            if (DataVistoria.Date <= DateTime.UtcNow.Date)
             {
                 return string.Format(Resource.Comum_Erro_Data_MenorQueAtual, Resource.Vistoria_DataVistoria);
             }

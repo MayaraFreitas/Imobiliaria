@@ -1,4 +1,9 @@
 ﻿-- Criar view de resultado de solicitações (tela de index)
+IF EXISTS(SELECT * FROM sys.all_views WHERE name = N'ViewSolicitacao')
+BEGIN
+	DROP VIEW [dbo].[ViewSolicitacao]
+END
+GO
 CREATE VIEW [dbo].[ViewSolicitacao] AS 
 
 SELECT
@@ -21,6 +26,12 @@ LEFT JOIN [Endereco] [E] ON  [E].[Id] = [I].[Id]
 GO
 
 -- Criar vire de comodos
+IF EXISTS(SELECT * FROM sys.all_views WHERE name = N'ViewComodo')
+BEGIN
+	DROP VIEW [dbo].[ViewComodo]
+END
+GO
+
 CREATE VIEW [dbo].[ViewComodo]
 AS
 
@@ -35,6 +46,12 @@ SELECT
 FROM [dbo].[Comodo] [C] WITH(NOLOCK)
 
 -- Criar view de Notas
+IF EXISTS(SELECT * FROM sys.all_views WHERE name = N'ViewNota')
+BEGIN
+	DROP VIEW [dbo].[ViewNota]
+END
+GO
+
 CREATE VIEW [dbo].[ViewNota]
 AS 
 
@@ -45,3 +62,22 @@ SELECT
 	[N].[Descricao]
 FROM [dbo].[Nota] [N] WITH(NOLOCK)
 GO;
+
+-- Criar view do usuario
+IF EXISTS(SELECT * FROM sys.all_views WHERE name = N'ViewUsuario')
+BEGIN
+	DROP VIEW [dbo].[ViewUsuario]
+END
+GO
+
+CREATE VIEW [dbo].[ViewUsuario]
+AS 
+
+SELECT
+	[U].[Id],
+	[U].[UserName],
+	[U].[Email],
+	[U].[PhoneNumber],
+	[U].[PhoneNumberConfirmed],
+	[U].[UserType]
+FROM [AspNetUsers] [U] WITH(NOLOCK)
