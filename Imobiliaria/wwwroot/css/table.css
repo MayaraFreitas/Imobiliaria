@@ -1,0 +1,15 @@
+:root {
+    --roxo-destaque: #6200ea;
+    --fundo-sidebar: #333333;
+    --fundo-navbar: #555555;
+    --icones-navbar: #f5f5f5;
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+
+    .conteudo-container table .oculto-no-mobile {
+      display: none;
+    }
+  
+  }

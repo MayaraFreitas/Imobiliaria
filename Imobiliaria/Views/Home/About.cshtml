@@ -1,7 +1,140 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Vistorias";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Imobi > Solicitações</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/materialize/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+
+
+</head>
+<script src="../js/index.js"></script>
+<body>
+
+
+    <div class="conteudo-container">
+        <div class="cabecalho">
+            <spam class="titulo">Vistorias</spam>
+
+            <div class="direito">
+                <a href="#" id="filtro-icone"><i class="material-icons">filter_list</i></a>
+            </div>
+
+            <form class="filtro hide" id="filtro">
+                <div class="row">
+                    <div class="col s12 m4 l0">
+                        <div class="input-field">
+                            <input type="text" />
+                            <label class="active">Rua</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l0">
+                        <div class="input-field">
+                            <input type="text" />
+                            <label class="active">Vistoriador</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l0">
+                        <div class="input-field">
+                            <input type="text" />
+                            <label class="active">Proprietário</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l0">
+                        <div class="input-field">
+                            <input type="date" />
+                            <label class="active">Data Abertura</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l0">
+                        <div class="input-field">
+                            <input type="date" />
+                            <label class="active">Data Agendada</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l0">
+                        <div class="input-field">
+                            <select class="browser-default">
+                                <option value="" disabled selected>Status</option>
+                                <option value="1">Em aberto</option>
+                                <option value="2">Atrasado</option>
+                                <option value="3">Reagendado</option>
+                            </select>
+                            <!-- <label>Materialize Select</label> -->
+                        </div>
+                    </div>
+                    <div class="col s12 m4 l0"></div>
+                    <div class="col s12 m4 l0"></div>
+                    <div class="col s12 m4 l0">
+                        <a class="waves-effect waves-light btn filtrar-botao">buscar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="dado-container">
+            <div class="row">
+                <div class="col12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rua</th>
+                                <th class="oculto-no-mobile">Vistoriador</th>
+                                <th class="oculto-no-mobile">Proprietário</th>
+                                <th class="oculto-no-mobile">Data Abertura</th>
+                                <th>Data Agendada</th>
+                                <th class="oculto-no-mobile">Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Rua Roberto Teixeira dos Santos, 558</td>
+                                <td class="oculto-no-mobile">Leonardo Z.</td>
+                                <td class="oculto-no-mobile">Rodrigo A.</td>
+                                <td class="oculto-no-mobile">01/04/2019</td>
+                                <td>26/04/2019</td>
+                                <td class="oculto-no-mobile table-status-value" value="0">
+                                    Em aberto
+                                </td>
+                                <td>
+                                    <a><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Rua Roberto Teixeira dos Santos, 558</td>
+                                <td class="oculto-no-mobile">Leonardo Z.</td>
+                                <td class="oculto-no-mobile">Rodrigo A.</td>
+                                <td class="oculto-no-mobile">01/04/2019</td>
+                                <td>26/04/2019</td>
+                                <td class="oculto-no-mobile table-status-value" value="1">
+                                    Atrasado
+                                </td>
+                                <td>
+                                    <a><i class="material-icons">more_vert</i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

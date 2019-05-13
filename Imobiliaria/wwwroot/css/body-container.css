@@ -1,0 +1,74 @@
+:root {
+    --roxo-destaque: #6200ea;
+    --fundo-sidebar: #333333;
+    --fundo-navbar: #555555;
+    --icones-navbar: #f5f5f5;
+  }
+  
+
+  .conteudo-container .dado-container .dados-solicitacao {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  
+  .conteudo-container .dado-container .destaque .titulo-solicitacao {
+    font-size: 24px;
+  }
+  
+  .conteudo-container .dado-container .destaque .codigo-solicitacao {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .conteudo-container .dado-container .destaque {
+    padding-bottom: 20px;
+  }
+  
+  .conteudo-container .dado-container .destaque-proprietario {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #777;
+  }
+  
+  .conteudo-container .dado-container .botao-reagendamento {
+    background-color: white;
+    color: #ef5350;
+    border: 2px solid #ef5350;
+  }
+  
+  .conteudo-container .dado-container .botao-solicitacao {
+    margin: 0px;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+  }
+  
+  .conteudo-container
+    .dado-container
+    .destaque-proprietario
+    .divisor-solicitacao {
+    color: #777;
+  }
+  
+  .conteudo-container .dado-container .dado-solicitacao {
+    text-align: left;
+  }
+  
+  .conteudo-container .dado-container th {
+    font-size: 13px;
+  }
+
+
+
+  .conteudo-container .dado-container .destaque-cadastro {
+    margin-bottom: 20px;
+    padding: 5px;
+    background-color: #7c4dff;
+  }
+
+  .conteudo-container
+    .dado-container
+    .destaque-cadastro
+    .divisor-cadastro {
+    color: white;
+  }

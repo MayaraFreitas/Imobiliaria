@@ -96,7 +96,7 @@ namespace Imobiliaria
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Solicitacao}/{action=Index}");
             });
 
             RotativaConfiguration.Setup(env);

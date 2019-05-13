@@ -1,0 +1,180 @@
+﻿@model Imobiliaria.Models.Solicitacao.SolicitacaoIndexVM
+
+
+@{
+    ViewData["Title"] = "Adicionar Solicitações";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Imobi > Solicitações</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="css/body-container.css" />
+    <link rel="stylesheet" type="text/css" href="css/table.css" />
+</head>
+<script src="../js/index.js"></script>
+<body>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+            <spam class="nome-usuario">Rodrigo Almeida</spam>
+            <spam class="cargo-usuario">Administrador</spam>
+            <spam class="configurar-usuario"><i class="material-icons">settings</i></spam>
+        </div>
+        <ul>
+            <li>
+                <div class="sidebar-item selecionado">
+                    <a><i class="material-icons">calendar_today</i>Solicitações</a>
+                </div>
+            </li>
+            <li>
+                <div class="sidebar-item">
+                    <a><i class="material-icons">done</i>Vistorias</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="body-container" id="body-container">
+        <div id="navbar-container" class="navbar-container">
+            <div class="esquerdo">
+                <a id="sidebar-icone"><i class="material-icons">menu</i></a>
+            </div>
+            <div class="direito">
+                <a><i class="material-icons">notifications</i></a>
+            </div>
+        </div>
+
+        <div class="conteudo-container">
+            <div class="cabecalho">
+                <spam class="titulo">Criar Solicitação</spam>
+            </div>
+            <form action="/Solicitacao/Criar" method="post">
+                <div class="dado-container">
+                    <div class="row">
+                        <div class="row">
+                            <div class="dados-solicitacao">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="destaque-cadastro" style="margin-bottom: 20px;">
+                                            <spam class="divisor-cadastro"><b>DADOS DA VISTORIA</b></spam>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m2 l0">
+                                    <div class="input-field">
+                                        <input placeholder="Ex: AP101" type="text" />
+                                        <label class="active">Código</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m2 l0">
+                                    <div class="input-field">
+                                        <input type="date" />
+                                        <label class="active">Data Vistoria</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="destaque-cadastro" style="margin-top: 15px; margin-bottom: 20px;">
+                                            <spam class="divisor-cadastro"><b>ENDEREÇO</b></spam>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m4 l0">
+                                        <div class="input-field">
+                                            <input placeholder="Ex: Av. Brasil" type="text" />
+                                            <label class="active">Logradouro</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m2 l0">
+                                        <div class="input-field">
+                                            <input placeholder="000" type="text" />
+                                            <label class="active">Número</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m2 l0">
+                                        <div class="input-field">
+                                            <input placeholder="Ex: Parque Taquaral" type="text" />
+                                            <label class="active">Bairro</label>
+                                        </div>
+                                    </div>
+                                    <div class="col s12 m4 l0">
+                                        <div class="input-field">
+                                            <input placeholder="Ex: Campinas" type="text" />
+                                            <label class="active">Cidade</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="destaque-cadastro" style="margin-bottom: 20px;">
+                                            <spam class="divisor-cadastro"><b>DADOS DO PROPRIETÁRIO</b></spam>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l0">
+                                    <div class="input-field">
+                                        <input placeholder="Nome do Proprietário" type="text" />
+                                        <label class="active">Nome</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m2 l0">
+                                    <div class="input-field">
+                                        <input placeholder="(00) 0000-0000" type="text" />
+                                        <label class="active">Telefone</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m2 l0">
+                                    <div class="input-field">
+                                        <input placeholder="(00) 90000-0000" type="text" />
+                                        <label class="active">Celular</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m4 l0">
+                                    <div class="input-field">
+                                        <input placeholder="E-mail do Proprietário" type="text" />
+                                        <label class="active">E-mail</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12 m4 l3">
+
+                                    </div>
+                                    <div class="col s12 m4 l6">
+
+                                    </div>
+                                    <div class="col s12 m4 l3 ">
+                                        <a class="waves-effect waves-light btn botao-solicitacao" style="margin-top: 25px;">solicitar vistoria</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        
+   
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/tables.js"></script>
+
+
+</body>
+
+</html>
+
