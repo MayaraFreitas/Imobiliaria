@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using Imobiliaria.Data.Entities;
-using Imobiliaria.Models;
 using Imobiliaria.Models.Solicitacao;
+using Imobiliaria.Models.Vistoria;
 using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Imobiliaria.Service.VOs.Vistoria;
 
 namespace Imobiliaria.Mappers
 {
@@ -20,12 +17,28 @@ namespace Imobiliaria.Mappers
             CreateMap<SolicitacaoFiltroVO, SolicitacaoFiltroVM>().ReverseMap();
             CreateMap<ViewSolicitacao, ViewSolicitacaoVO>().ReverseMap();
             CreateMap<ViewSolicitacaoVO, ViewSolicitacaoVM>().ReverseMap();
+
+            CreateMap<Vistoria, VistoriaVO>().ReverseMap();
+            CreateMap<VistoriaVO, VistoriaVM>().ReverseMap();
+
+            CreateMap<Comodo, ComodoVO>().ReverseMap();
+            CreateMap<ComodoVO, ComodoVM>().ReverseMap();
+            CreateMap<ViewComodo, ViewComodoVO>().ReverseMap();
+            CreateMap<ViewComodoVO, ViewComodoVM>().ReverseMap();
+
+            CreateMap<Nota, NotaVO>().ReverseMap();
+            CreateMap<NotaVO, NotaVM>().ReverseMap();
+            CreateMap<ViewNota, ViewNotaVO>().ReverseMap();
+            CreateMap<ViewNotaVO, ViewNotaVM>().ReverseMap();
+
+            CreateMap<Medicao, MedicaoVO>().ReverseMap();
+            CreateMap<MedicaoVO, MedicaoVM>().ReverseMap();
+
             /*
             CreateMap<Cliente, ClienteVO>().ReverseMap();
             CreateMap<ClienteVO, ClienteVM>().ReverseMap();
 
-            CreateMap<Comodo, ComodoVO>().ReverseMap();
-            CreateMap<ComodoVO, ComodoVM>().ReverseMap();
+           
 
             CreateMap<Empresa, EmpresaVO>().ReverseMap();
             CreateMap<EmpresaVO, EmpresaVM>().ReverseMap();
@@ -39,17 +52,9 @@ namespace Imobiliaria.Mappers
             CreateMap<LogSolicitacao, LogSolicitacaoVO>().ReverseMap();
             CreateMap<LogSolicitacaoVO, LogSolicitacaoVM>().ReverseMap();
 
-            CreateMap<Medicao, MedicaoVO>().ReverseMap();
-            CreateMap<MedicaoVO, MedicaoVM>().ReverseMap();
-
-            CreateMap<Nota, NotaVO>().ReverseMap();
-            CreateMap<NotaVO, NotaVM>().ReverseMap();
 
             CreateMap<User, UserVO>().ReverseMap();
             CreateMap<UserVO, UserVM>().ReverseMap();
-
-            CreateMap<Vistoria, VistoriaVO>().ReverseMap();
-            CreateMap<VistoriaVO, VistoriaVM>().ReverseMap();
             */
         }
     }

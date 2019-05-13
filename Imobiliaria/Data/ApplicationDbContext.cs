@@ -14,19 +14,29 @@ namespace Imobiliaria.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         { }
+
+        // Usuario
+        public DbSet<ViewUsuario> ViewUsuario { get; set; }
+
+        // Solicitacao
         public DbSet<Solicitacao> Solicitacao { get; set; }
         public DbSet<ViewSolicitacao> ViewSolicitacao { get; set; }
-        public DbSet<Cliente>        Cliente { get; set; }
-        public DbSet<Comodo>         Comodo { get; set; }
-        public DbSet<Empresa>        Empresa { get; set; }
-        public DbSet<Imovel>         Imovel { get; set; }
-        public DbSet<Endereco>       Endereco { get; set; }
-        public DbSet<Nota>           Nota { get; set; }
-        public DbSet<Vistoria>       Vistoria { get; set; }
-        public DbSet<Medicao>        Medicao { get; set; }
         public DbSet<LogSolicitacao> LogSolicitacao { get; set; }
 
+        // Vistoria
+        public DbSet<Vistoria> Vistoria { get; set; }
+        public DbSet<Comodo> Comodo { get; set; }
+        public DbSet<ViewComodo> ViewComodo { get; set; }
+        public DbSet<Nota> Nota { get; set; }
+        public DbSet<ViewNota> ViewNota { get; set; }
+        public DbSet<Medicao> Medicao { get; set; }
 
+        // Outros
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Empresa> Empresa { get; set; }
+        public DbSet<Imovel> Imovel { get; set; }
+        public DbSet<Endereco> Endereco { get; set; }
+        
         #region override
         /*
         protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Entity<Endereco>()

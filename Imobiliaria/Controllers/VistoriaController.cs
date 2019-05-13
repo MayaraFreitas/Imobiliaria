@@ -8,6 +8,7 @@ using Imobiliaria.Models.Solicitacao;
 using Imobiliaria.Service;
 using Imobiliaria.Service.VOs;
 using Microsoft.AspNetCore.Mvc;
+using Rotativa.AspNetCore;
 
 namespace Imobiliaria.Controllers
 {
@@ -29,9 +30,24 @@ namespace Imobiliaria.Controllers
         {
             IList<SolicitacaoVO> lstSolicitacaoVO =  _vistoriaService.FindAll();
             IList<SolicitacaoVM> lstSolicitacaoVM = _mapper.Map<IList<SolicitacaoVM>>(lstSolicitacaoVO);
+
             return View();
         }
 
+        public IActionResult SolicitacaoPDF()
+        {
+           VistoriaVO vistoriaVO = _vistoriaService.ExportarPDF(2); //Arrumar o objeto
+
+            VistoriaVM vistoria = _mapper.Map<VistoriaVM>(vistoriaVO);
+
+            var pdf = new ViewAsPdf(vistoria)
+            {
+                PageMargins = { Left = 20, Bottom = 20, Right = 20, Top = 20 },
+                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12",
+                PageSize = Rotativa.AspNetCore.Options.Size.A4
+            };
+            return pdf;
+        }
         [HttpPost]
         public IActionResult Index(string teste)
         {

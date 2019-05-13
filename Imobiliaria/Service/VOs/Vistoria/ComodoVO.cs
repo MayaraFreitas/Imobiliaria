@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Imobiliaria.Service.VOs
+namespace Imobiliaria.Service.VOs.Vistoria
 {
     public class ComodoVO
     {
@@ -14,5 +14,10 @@ namespace Imobiliaria.Service.VOs
 
         public VistoriaVO Vistoria { get; set; }
         public List<NotaVO> LstNota { get; set; }
+
+        public string Validar()
+        {
+            return null;
+        }
     }
 }
