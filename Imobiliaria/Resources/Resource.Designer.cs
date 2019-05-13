@@ -19,7 +19,7 @@ namespace Imobiliaria.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resource {
@@ -61,11 +61,38 @@ namespace Imobiliaria.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ops! Houve um erro ao gerar o comodo. Entre em contato com o time Imobi..
+        /// </summary>
+        public static string Comodo_Criar_ErroGenerico {
+            get {
+                return ResourceManager.GetString("Comodo_Criar_ErroGenerico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ops! A data {0} é menor que a data atual!.
         /// </summary>
         public static string Comum_Erro_Data_MenorQueAtual {
             get {
                 return ResourceManager.GetString("Comum_Erro_Data_MenorQueAtual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ops! Houve um erro ao gerar a medição. Entre em contato com o time Imobi..
+        /// </summary>
+        public static string Medicao_Criar_ErroGenerico {
+            get {
+                return ResourceManager.GetString("Medicao_Criar_ErroGenerico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ops! Houve um erro ao gerar um nota. Entre em contato com o time Imobi..
+        /// </summary>
+        public static string Nota_Criar_ErroGenerico {
+            get {
+                return ResourceManager.GetString("Nota_Criar_ErroGenerico", resourceCulture);
             }
         }
         

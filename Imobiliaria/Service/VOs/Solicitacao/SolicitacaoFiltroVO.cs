@@ -11,7 +11,8 @@ namespace Imobiliaria.Service.VOs
         public DateTime? DataSolicitacao { get; set; }
         public DateTime? DataAgendamento { get; set; }
         public string EnderecoRua { get; set; }
-        public string IdSolicitador { get; set; }
+        public string IdUsuario { get; set; }
+        public byte TipoUsuario { get; set; }
 
         public string Validar()
         {
