@@ -116,22 +116,36 @@ namespace Imobiliaria.Controllers
         {
             SolicitacaoVO solicitacaoVO = _vistoriaService.ExportarPDF(2);
 
-
-            /* SolicitacaoVM solicitacao = new SolicitacaoVM()
-             {
-                 Id = 1,
-                 DataSolicitacao = new DateTime(2019,04,25),
-                 DataVistoria = new DateTime(2019, 04, 25),
-                 IdVistoriados = "1",
-                 IdSolicitador = "1"
-             };*/
-
             SolicitacaoVM solicitacao = _mapper.Map<SolicitacaoVM>(solicitacaoVO);
 
-            var pdf = new ViewAsPdf(solicitacao);
-
+            var pdf = new ViewAsPdf(solicitacao)
+            {
+                PageMargins = { Left = 20, Bottom = 20, Right = 20, Top = 20 },
+                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12",
+                PageSize = Rotativa.AspNetCore.Options.Size.A4
+            };
             return pdf;
         }
+        
+        #region Metodos de simulação
+        private string testeInserirSolicitação()
+        {
+            //var user = _userManager.GetUserAsync(HttpContext.User);
+            //var test = _userManager.GetUserId(HttpContext.User);
+            SolicitacaoVO solicitacao = new SolicitacaoVO()
+            {
+                DataSolicitacao = new DateTime(2019, 04, 19),
+                DataVistoria = new DateTime(2019, 05, 10),
+                IdSolicitador = _userManager.GetUserId(HttpContext.User),
+                IdVistoriador = _userManager.GetUserId(HttpContext.User),
+                Status = Constants.StatusAtivo.Ativo,
+                IdImovel = 1
+            };
 
+            _vistoriaService.InserirSolicitacao(solicitacao);
+
+            return null;
+        }
+        #endregion
     }
 }
