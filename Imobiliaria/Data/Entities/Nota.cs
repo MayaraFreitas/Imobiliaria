@@ -13,6 +13,7 @@ namespace Imobiliaria.Data.Entities
         public string Titulo { get; set; }
         public int IdComodo { get; set; }
 
+        [ForeignKey("IdComodo")]
         public Comodo Comodo { get; set; }
     }
 }

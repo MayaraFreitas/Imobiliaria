@@ -11,8 +11,8 @@ namespace Imobiliaria.Models.Vistoria
         public byte Status { get; set; }
         public DateTime DataFim { get; set; }
 
-        public SolicitacaoVM Solicitacao { get; set; }
-        public List<ComodoVM> LstComodo { get; set; }
-        public List<MedicaoVM> LstMedicao { get; set; }
+        //public SolicitacaoVM Solicitacao { get; set; }
+        public ICollection<ComodoVM> LstComodo { get; set; }
+        public MedicaoVM Medicao { get; set; }
     }
 }

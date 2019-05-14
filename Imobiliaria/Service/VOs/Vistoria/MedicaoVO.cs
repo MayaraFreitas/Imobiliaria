@@ -7,10 +7,10 @@ namespace Imobiliaria.Service.VOs.Vistoria
         public int Id { get; set; }
         public string Agua { get; set; }
         public string Energia { get; set; }
-        public string Extintor { get; set; }
-        public string Gas { get; set; }
+        public byte Extintor { get; set; }
+        public byte GasEncanado { get; set; }
         public bool Ativo { get; set; }
-
+        public int IdVistoria { get; set; }
         public VistoriaVO Vistoria { get; set; }
 
         public string Validar()

@@ -6,9 +6,11 @@ using AutoMapper;
 using Imobiliaria.Helpers;
 using Imobiliaria.Models;
 using Imobiliaria.Models.Solicitacao;
+using Imobiliaria.Models.Vistoria;
 using Imobiliaria.Service;
 using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
+using Imobiliaria.Service.VOs.Vistoria;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Rotativa.AspNetCore;
@@ -110,21 +112,6 @@ namespace Imobiliaria.Controllers
 
             // Retornar para a view de index (procurar comando para redirecionar)
             return RedirectToAction("Index");
-        }
-
-        public IActionResult SolicitacaoPDF()
-        {
-            SolicitacaoVO solicitacaoVO = _vistoriaService.ExportarPDF(2);
-
-            SolicitacaoVM solicitacao = _mapper.Map<SolicitacaoVM>(solicitacaoVO);
-
-            var pdf = new ViewAsPdf(solicitacao)
-            {
-                PageMargins = { Left = 20, Bottom = 20, Right = 20, Top = 20 },
-                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12",
-                PageSize = Rotativa.AspNetCore.Options.Size.A4
-            };
-            return pdf;
         }
         
         #region Metodos de simulação

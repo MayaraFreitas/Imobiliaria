@@ -8,12 +8,13 @@ namespace Imobiliaria.Service.VOs.Vistoria
         public int Id { get; set; }
         public bool Ativo { get; set; }
         public string Nome { get; set; }
-        public string Imagem { get; set; }
-        public string CorTeto { get; set; }
-        public string CorParede { get; set; }
+        public byte[] Imagem { get; set; }
+        public byte CorTeto { get; set; }
+        public byte CorParede { get; set; }
+        public int IdVistoria { get; set; }
 
-        public VistoriaVO Vistoria { get; set; }
-        public List<NotaVO> LstNota { get; set; }
+        //public VistoriaVO Vistoria { get; set; }
+        public ICollection<NotaVO> LstNota { get; set; }
 
         public string Validar()
         {

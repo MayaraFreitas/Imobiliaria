@@ -11,12 +11,14 @@ namespace Imobiliaria.Data.Entities
         public int Id { get; set; }
         public bool Ativo { get; set; }
         public string Nome { get; set; }
-        public string Imagem { get; set; }
-        public string CorTeto { get; set; }
-        public string CorParede { get; set; }
+        public byte[] Imagem { get; set; }
+        public byte CorTeto { get; set; }
+        public byte CorParede { get; set; }
         public int IdVistoria { get; set; }
 
+        [ForeignKey("IdVistoria")]
         public Vistoria Vistoria { get; set; }
-        public List<Nota> LstNota { get; set; }
+
+        public virtual ICollection<Nota> LstNota { get; set; }
     }
 }

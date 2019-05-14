@@ -11,9 +11,9 @@ namespace Imobiliaria.Service.VOs.Vistoria
         public byte Status { get; set; }
         public DateTime? DataFim { get; set; }
 
-        public SolicitacaoVO Solicitacao { get; set; }
-        public List<ComodoVO> LstComodo { get; set; }
-        public List<MedicaoVO> LstMedicao { get; set; }
+        //public SolicitacaoVO Solicitacao { get; set; }
+        public ICollection<ComodoVO> LstComodo { get; set; }
+        public MedicaoVO Medicao { get; set; }
 
         public string Validar()
         {

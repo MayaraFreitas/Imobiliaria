@@ -61,6 +61,24 @@ namespace Imobiliaria.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não.
+        /// </summary>
+        public static string Commum_Nao {
+            get {
+                return ResourceManager.GetString("Commum_Nao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sim.
+        /// </summary>
+        public static string Commum_Sim {
+            get {
+                return ResourceManager.GetString("Commum_Sim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ops! Houve um erro ao gerar o comodo. Entre em contato com o time Imobi..
         /// </summary>
         public static string Comodo_Criar_ErroGenerico {
@@ -70,11 +88,47 @@ namespace Imobiliaria.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Água.
+        /// </summary>
+        public static string Comum_Agua {
+            get {
+                return ResourceManager.GetString("Comum_Agua", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Energia.
+        /// </summary>
+        public static string Comum_Energia {
+            get {
+                return ResourceManager.GetString("Comum_Energia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ops! A data {0} é menor que a data atual!.
         /// </summary>
         public static string Comum_Erro_Data_MenorQueAtual {
             get {
                 return ResourceManager.GetString("Comum_Erro_Data_MenorQueAtual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gás.
+        /// </summary>
+        public static string Comum_Gas {
+            get {
+                return ResourceManager.GetString("Comum_Gas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível medir a {0}.
+        /// </summary>
+        public static string Comum_Medicao_Indefinida {
+            get {
+                return ResourceManager.GetString("Comum_Medicao_Indefinida", resourceCulture);
             }
         }
         
