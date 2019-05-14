@@ -384,8 +384,8 @@ namespace Imobiliaria.Data.Migrations
                    Id = table.Column<int>(nullable: false),
                    Agua = table.Column<string>(nullable: false),
                    Energia = table.Column<string>(nullable: false),
-                   Extintor = table.Column<bool>(nullable: false),
-                   GasEncanado = table.Column<bool>(nullable: false),
+                   Extintor = table.Column<byte>(nullable: false),
+                   GasEncanado = table.Column<byte>(nullable: false),
                    Ativo = table.Column<bool>(nullable: false),
                    IdVistoria = table.Column<int>(nullable: false)
                },

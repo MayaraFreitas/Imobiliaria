@@ -4,6 +4,7 @@ using Imobiliaria.Helpers;
 using Imobiliaria.Service.VOs;
 using Imobiliaria.Service.VOs.Solicitacao;
 using Imobiliaria.Service.VOs.Vistoria;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,7 +16,6 @@ namespace Imobiliaria.Data.Repository
         void InserirSolicitacao(SolicitacaoVO solicitacao);
         IEnumerable<ViewSolicitacaoVO> BuscarViewSolicitacao(SolicitacaoFiltroVO filtro);
         SolicitacaoVO BuscarSolicitacaoDetalhe(int codigoSolicitacao);
-        SolicitacaoVO ExportarPDF(int codigo);
         #endregion
 
         #region Vistoria
@@ -26,6 +26,8 @@ namespace Imobiliaria.Data.Repository
         IEnumerable<ViewNotaVO> BuscarViewNota(int idComodo);
         void InserirMedicao(MedicaoVO medicaoVO);
         #endregion
+
+        VistoriaVO ExportarPDF(int idVIstoria);
 
         // teste
         IList<SolicitacaoVO> FindAll();
@@ -97,11 +99,6 @@ namespace Imobiliaria.Data.Repository
             return _mapper.Map<SolicitacaoVO>(solicitacao);
         }
 
-        public SolicitacaoVO ExportarPDF(int codigo)
-        {
-            Solicitacao solicitacao = _context.Solicitacao.Where(s => s.Id == codigo).First();
-            return _mapper.Map<SolicitacaoVO>(solicitacao);
-        }
         #endregion
 
         #region Vistoria
@@ -157,6 +154,19 @@ namespace Imobiliaria.Data.Repository
             IList<Solicitacao> lstSolicitacao = _context.Solicitacao.ToList();
             return _mapper.Map<IList<SolicitacaoVO>>(lstSolicitacao);
         }
+        #endregion
+
+        #region Relatorio
+
+        public VistoriaVO ExportarPDF(int idVistoria)
+        {
+            //var vistoria = _context.Vistoria.Where(v => v.Id == idVistoria).FirstOrDefault();
+            var vistoria = _context.Vistoria
+                .Where(v => v.Id == idVistoria).Include("LstComodo").Include("LstComodo.LstNota").Include("Medicao")
+                .FirstOrDefault();
+            return _mapper.Map<VistoriaVO>(vistoria);
+        }
+
         #endregion
 
         #endregion

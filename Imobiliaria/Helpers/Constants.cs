@@ -50,5 +50,23 @@ namespace Imobiliaria.Helpers
             public static byte Sim = 1;
             public static byte Nao = 2;
         }
+
+        public static class Cor
+        {
+            public static byte Vermelho = 1;
+            public static byte Verde = 2;
+            public static byte Amarelo = 3;
+            public static byte Azul = 4;
+            public static byte Branco = 5;
+
+            public static string BuscarCor(byte idCor)
+            {
+                if(idCor == 1)
+                {
+                    return "Vermelho";
+                }
+                return ":)";
+            }
+        }
     }
 }

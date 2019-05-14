@@ -13,10 +13,12 @@ namespace Imobiliaria.Data.Entities
         public DateTime DataInicio { get; set; }
         public byte Status { get; set; }
         public DateTime? DataFim { get; set; }
+        public int IdSolicitacao { get; set; }
 
-        //public Solicitacao Solicitacao { get; set; }
-        //public List<Comodo> LstComodo { get; set; }
-        //public List<Medicao> LstMedicao { get; set; }
+        [ForeignKey("IdSolicitacao")]
+        public Solicitacao Solicitacao { get; set; }
+        public virtual ICollection<Comodo> LstComodo { get; set; }
+        public Medicao Medicao { get; set; }
     }
 }
    

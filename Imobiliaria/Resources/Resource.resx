@@ -117,11 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Commum_Nao" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="Commum_Sim" xml:space="preserve">
+    <value>Sim</value>
+  </data>
   <data name="Comodo_Criar_ErroGenerico" xml:space="preserve">
     <value>Ops! Houve um erro ao gerar o comodo. Entre em contato com o time Imobi.</value>
   </data>
+  <data name="Comum_Agua" xml:space="preserve">
+    <value>Água</value>
+  </data>
+  <data name="Comum_Energia" xml:space="preserve">
+    <value>Energia</value>
+  </data>
   <data name="Comum_Erro_Data_MenorQueAtual" xml:space="preserve">
     <value>Ops! A data {0} é menor que a data atual!</value>
+  </data>
+  <data name="Comum_Gas" xml:space="preserve">
+    <value>Gás</value>
+  </data>
+  <data name="Comum_Medicao_Indefinida" xml:space="preserve">
+    <value>Não foi possível medir a {0}</value>
   </data>
   <data name="Medicao_Criar_ErroGenerico" xml:space="preserve">
     <value>Ops! Houve um erro ao gerar a medição. Entre em contato com o time Imobi.</value>
